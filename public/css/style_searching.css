@@ -1,0 +1,148 @@
+#banner img {
+  width: 80%;
+  height: 480px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.left-list {
+  height: fit-content;
+  width: 15%;
+  background: #fff;
+  margin-right: 10px;
+  margin-top: 10px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.left-list a {
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  color: #000000bb;
+}
+
+.left-list a:hover {
+  background: #00000022;
+}
+
+.left-list a:hover {
+  color: none;
+}
+
+.nav-left-list-active {
+  background: #00000044;
+}
+
+.breadcrumb {
+  background-color: white;
+}
+
+.breadcrumb-item a {
+  color: #f05f40;
+  font-weight: bold;
+}
+
+.breadcrumb-item a:hover {
+  color: #f05f40;
+}
+
+.gallery {
+  background: white;
+  padding: 15px;
+  z-index: 0;
+  width: 90%;
+}
+
+.gallery .header_gallery {
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+  color: white;
+  background: #f05f40;
+}
+
+#nameGallery {
+  padding-left: 10px;
+  color: white;
+}
+
+#more {
+  float: right;
+  color: white;
+  padding-right: 10px;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+.gallery .info {
+  background: white;
+  color: black;
+  font-size: 18px;
+}
+
+.gallery hr {
+  color: aqua;
+}
+
+.gallery .cost {
+  float: right;
+  background: #f05f40;
+  color: white;
+  font-size: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+#khuyenmai {
+  margin-top: 20px;
+}
+
+.HuongDan {
+  margin-top: 15px;
+  background: white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  border: #f05f40 solid 2px;
+}
+
+#videoTur {
+  width: 90%;
+  min-height: 400px;
+  margin-left: 5%;
+}
+
+.HuongDan h1 {
+  font-size: 32px;
+  color: rgb(63, 144, 219);
+}
+
+.HuongDan li {
+  font-size: 18px;
+}
+
+.item {
+  border: #666 1px solid;
+  height: 100%;
+  padding: 10px;
+}
+
+.gallery .row > div {
+  margin-bottom: 15px;
+}

@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   color: #666;
   line-height: 1.6em;
   background: rgba(238, 232, 232, 0.651);
@@ -69,22 +69,19 @@ input[type="search"] {
   height: 65px;
   width: 20%;
   text-align: center;
-  padding-top: 18px;
   /* border-right: #fff solid 1px;
   border-left: #fff solid 1px; */
 }
 
-.nav_bottom li:hover {
-  background: rgb(214, 87, 58);
-}
-
-.nav_bottom li:active {
+.nav_bottom li a:hover {
   background: rgb(214, 87, 58);
 }
 
 .nav_bottom li a {
   padding-bottom: 0px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
@@ -157,6 +154,7 @@ nav a:hover,
 .container {
   max-width: 100%;
   margin: 0;
+  text-align: center;
 }
 
 .navbar-brand {
@@ -166,13 +164,41 @@ nav a:hover,
   font-weight: bold;
 }
 
+footer {
+  background: #f05f40;
+  height: 55px;
+  color: #fff;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 40px;
+  width: 100%;
+  float: left;
+}
+
+.nav_bottom #li_au .list-shirt {
+  display: none;
+  background: #f05f40;
+  z-index: 100;
+}
+
+.nav_bottom #li_au div:hover .list-shirt {
+  display: block;
+}
+
+.nav_bottom #li_au div .list-shirt {
+  position: relative;
+}
+
+.nav_bottom li div a {
+  height: 65px;
+}
+
 @media only screen and (max-width: 768px) {
   .nav_bottom li {
     list-style: none;
     height: 65px;
     width: 100%;
     text-align: center;
-    padding-top: 18px;
     /* border-right: #fff solid 1px;
         border-left: #fff solid 1px; */
   }
@@ -184,12 +210,6 @@ nav a:hover,
   }
 }
 
-footer {
-  background: #f05f40;
-  height: 55px;
-  color: #fff;
-  text-align: center;
-  padding-top: 10px;
-  margin-top: 40px;
+#none-hover:hover {
+  background: none;
 }
-
