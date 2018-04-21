@@ -1,3 +1,18 @@
+.aoHot h2 {
+  margin-top: 20px;
+  color:  rgb(63, 144, 219);
+}
+
+.aoHot p{
+  font-size: 18px;
+}
+
+.aoHot {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #banner img {
   width: 80%;
   height: 480px;
@@ -10,7 +25,7 @@
   margin-left: 2%;
   margin-right: 2%;
   background: white;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 15px;
@@ -65,31 +80,31 @@
   margin-bottom: 10px;
 }
 
-#khuyenmai {
+.pagination a {
+  color: black;
+  float: left;
+  padding: 0px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border-left: rgb(63, 144, 219) 1px solid;
+  border-top: rgb(63, 144, 219) 1px solid;
+  border-bottom: rgb(63, 144, 219) 1px solid;
+}
+
+#last {
+  border-right: rgb(63, 144, 219) 1px solid;
+}
+
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination {
   margin-top: 20px;
-}
-
-.HuongDan {
-  margin-top: 15px;
-  background: white;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-  border: #f05f40 solid 2px ;
-}
-
-#videoTur {
-  width: 90%;
-  min-height: 400px;
-  margin-left: 5%;
-}
-
-.HuongDan h1{
-  font-size: 32px;
-  color: rgb(63, 144, 219);
-}
-
-.HuongDan li{
-  font-size: 18px;
+  font-size: 16px;
 }

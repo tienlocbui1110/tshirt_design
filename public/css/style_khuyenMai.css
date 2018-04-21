@@ -1,0 +1,126 @@
+.aoHot h2 {
+    margin-top: 20px;
+    color: rgb(63, 144, 219);
+}
+
+.aoHot p {
+    font-size: 18px;
+}
+
+.aoHot {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#banner img {
+    width: 80%;
+    height: 480px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery {
+    margin-left: 2%;
+    margin-right: 2%;
+    background: white;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+.gallery .header_gallery {
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+    color: white;
+    background: #f05f40;
+}
+
+#nameGallery {
+    padding-left: 10px;
+    color: white;
+}
+
+#more {
+    float: right;
+    color: white;
+    padding-right: 10px;
+}
+
+.gallery .col-sm {
+    width: 20%;
+    border: #666 1px solid;
+    margin: 10px;
+}
+
+.gallery .col-sm img {
+    width: 100%;
+}
+
+.gallery .info {
+    background: white;
+    color: black;
+    font-size: 18px;
+}
+
+.gallery hr {
+    color: aqua;
+}
+
+.gallery .col-sm .cost {
+    float: right;
+    background: #f05f40;
+    color: white;
+    font-size: 12px;
+    width: 25%;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 0px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-left: rgb(63, 144, 219) 1px solid;
+    border-top: rgb(63, 144, 219) 1px solid;
+    border-bottom: rgb(63, 144, 219) 1px solid;
+}
+
+#last {
+    border-right: rgb(63, 144, 219) 1px solid;
+}
+
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.safeoff{
+    font-size: 16px;
+    width: 75%;
+    margin: 0px;
+    float: left;
+}
+
+.safeoff p{
+    font-size: 16px;
+    display: inline;
+}
+
+.safeoff p.price{
+    text-decoration: line-through;
+}
