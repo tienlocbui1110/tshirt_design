@@ -1,10 +1,19 @@
-.aoHot h2 {
-  margin-top: 20px;
-  color:  rgb(63, 144, 219);
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.aoHot p{
+.aoHot h2 {
+  margin-top: 20px;
+  color: rgb(63, 144, 219);
+  text-align: left;
+}
+
+.aoHot p {
   font-size: 18px;
+  text-align: left;
 }
 
 .aoHot {
@@ -22,13 +31,9 @@
 }
 
 .gallery {
-  margin-left: 2%;
-  margin-right: 2%;
   background: white;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 15px;
+  z-index: 0;
 }
 
 .gallery .header_gallery {
@@ -50,13 +55,7 @@
   padding-right: 10px;
 }
 
-.gallery .col-sm {
-  width: 20%;
-  border: #666 1px solid;
-  margin: 10px;
-}
-
-.gallery .col-sm img {
+.gallery img {
   width: 100%;
 }
 
@@ -70,14 +69,29 @@
   color: aqua;
 }
 
-.gallery .col-sm .cost {
+.gallery .cost {
   float: right;
   background: #f05f40;
   color: white;
   font-size: 12px;
-  width: 25%;
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.gallery .cost:hover {
+  background: #f96849;
+}
+
+.item {
+  border: #666 1px solid;
+  height: 100%;
+  padding: 10px;
+}
+
+.gallery .row > div {
+  margin-bottom: 15px;
 }
 
 .pagination a {
@@ -85,7 +99,7 @@
   float: left;
   padding: 0px 16px;
   text-decoration: none;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   border-left: rgb(63, 144, 219) 1px solid;
   border-top: rgb(63, 144, 219) 1px solid;
   border-bottom: rgb(63, 144, 219) 1px solid;

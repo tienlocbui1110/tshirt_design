@@ -1,19 +1,23 @@
 #banner img {
   width: 80%;
-  height: 480px;
+  height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .gallery {
-  margin-left: 2%;
-  margin-right: 2%;
   background: white;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 15px;
+  z-index: 0;
+  width: 90%;
 }
 
 .gallery .header_gallery {
@@ -35,13 +39,7 @@
   padding-right: 10px;
 }
 
-.gallery .col-sm {
-  width: 20%;
-  border: #666 1px solid;
-  margin: 10px;
-}
-
-.gallery .col-sm img {
+.gallery img {
   width: 100%;
 }
 
@@ -55,14 +53,29 @@
   color: aqua;
 }
 
-.gallery .col-sm .cost {
+.gallery .cost {
   float: right;
   background: #f05f40;
   color: white;
   font-size: 12px;
-  width: 25%;
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.gallery .cost:hover {
+  background: #f96849;
+}
+
+.item {
+  border: #666 1px solid;
+  height: 100%;
+  padding: 10px;
+}
+
+.gallery .row > div {
+  margin-bottom: 15px;
 }
 
 #khuyenmai {
@@ -76,7 +89,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 15px;
-  border: #f05f40 solid 2px ;
+  border: #f05f40 solid 2px;
 }
 
 #videoTur {
@@ -85,11 +98,11 @@
   margin-left: 5%;
 }
 
-.HuongDan h1{
+.HuongDan h1 {
   font-size: 32px;
   color: rgb(63, 144, 219);
 }
 
-.HuongDan li{
+.HuongDan li {
   font-size: 18px;
 }
