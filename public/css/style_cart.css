@@ -1,0 +1,122 @@
+#banner img {
+  width: 80%;
+  height: 480px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content {
+  background: white;
+  padding: 15px;
+  z-index: 0;
+  width: 90%;
+}
+
+.breadcrumb {
+  background-color: white;
+  padding-left: 0;
+}
+
+.breadcrumb-item a {
+  color: #f05f40;
+  font-weight: bold;
+}
+
+.breadcrumb-item a:hover {
+  color: #f05f40;
+}
+
+.shopping-cart-list {
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+}
+
+.shopping-cart-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.shopping-cart-item-img {
+  width: 15%;
+}
+
+.shopping-cart-item-img img {
+  width: 100%;
+  height: auto;
+}
+
+.shopping-cart-item-information {
+  width: 50%;
+  text-align: left;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping-cart-item-information a {
+  color: #f05f40;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.shopping-cart-item-information p {
+  margin-top: 5px;
+}
+
+.shopping-cart-item-information span {
+  color: #f05f40;
+  font-family: "Tinos", serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.shopping-cart-item-amount {
+  width: 35%;
+  padding-left: 15%;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: 1;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.shopping-cart-item-amount img {
+  width: 32px;
+  height: auto;
+  vertical-align: super;
+}
+
+.shopping-cart-item-amount button {
+  width: 32px;
+  border: none;
+  background: none;
+  height: 32px;
+  cursor: pointer;
+}
+
+.shopping-cart-item-amount button:focus {
+  border: none;
+  outline: none;
+}
+
+.shopping-cart-item-information button {
+  position: absolute;
+  bottom: 0;
+}
+
+.content .btn.btn-primary {
+  margin-top: 25px;
+}
