@@ -120,3 +120,7 @@
 .content .btn.btn-primary {
   margin-top: 25px;
 }
+
+#name {
+  color: rgb(63, 144, 219);
+}

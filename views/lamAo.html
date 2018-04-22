@@ -13,6 +13,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/css/style_template.css">
+    <link rel="stylesheet" href="../public/css/style_lamAo.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                         </form>
                     </li>
                     <li class="nav-item active icon-items">
-                        <a href="#">
+                        <a href="cart.html">
                             <img id="gioHang" src="../public/img/shopping_cart.png" alt=""> Giỏ hàng
                         </a>
                     </li>
@@ -81,6 +82,55 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="lamAo" onload="LamAoSelected_display()">
+            <h2>Làm áo</h2>
+            <div class="container_lamAo">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img id="display" src="../public/img/ao1.jpg" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="choice">
+                            <h5>Giá: 100000đ</h5>
+                            <hr>
+                            <p>Mẫu áo:</p>
+                            <div class="mauAo">
+                                <img name="mauAo01" class="mauAo_active" src="../public/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
+                                <img name="mauAo01" src="../public/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
+                                <br>
+                                <br>
+                            </div>
+                            <p>Màu sắc:</p>
+                            <div class="mauSac">
+                                <div name="orange" class="orange mauSac_active" onclick="LamAoSelected_mauSac(this);"></div>
+                                <div name="blue" class="blue" onclick="LamAoSelected_mauSac(this);"></div>
+                                <div name="black" class="black" onclick="LamAoSelected_mauSac(this);"></div>
+                                <br>
+                                <br>
+                            </div>
+                            <p>Mẫu hình:</p>
+                            <div class="mauHinh">
+                                <img name="mauHinh01" class="mauHinh_active" src="../public/img/mauHinh01.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
+                                <img name="mauHinh02" src="../public/img/mauHinh02.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
+                                <br>
+                                <br>
+                            </div>
+                            <p>Kích cỡ:</p>
+                            <select class="form-control" id="sel1">
+                                <option>XS</option>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                            </select>
+                            <hr>
+                            <button class="btn btn-success">Cho vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         Web bán hàng
@@ -91,6 +141,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="../public/js/script.js"></script>
 </body>
 
 </html>
