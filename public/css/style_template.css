@@ -261,7 +261,7 @@ footer {
   color: white;
 }
 
-.row{
+footer .row{
   width: 90%;
   margin-left: auto;
   margin-right: auto;  
@@ -295,17 +295,17 @@ footer iframe {
   height: 170px;
 }
 
-.sm {
+footer .sm {
   list-style: none;
   overflow: auto;
 }
 
-.sm li {
+footer .sm li {
   display: inline;
   padding: 5px;
   float: left;
 }
 
-.sm li a img {
+footer .sm li a img {
   width: 32px;
 }
