@@ -1,0 +1,130 @@
+.nav {
+  background: #434343;
+  width: 100%;
+  font-size: 30px;
+  color: white;
+  height: 100px;
+}
+
+.nav p {
+  margin: auto;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  max-width: 100%;
+  padding: 30px 5%;
+}
+
+.root {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.left-control {
+  background: #434343;
+  width: 20%;
+}
+
+.left-control a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 15px;
+}
+
+.active {
+  background: #868686;
+}
+
+.popular-product {
+  width: 200px;
+  height: 200px;
+}
+
+.container p {
+  font-size: 18px;
+}
+
+.number {
+  color: red;
+  font-weight: bold;
+}
+
+.member-name {
+  color: blue;
+  font-weight: bold;
+}
+
+.shirt-information {
+  color: deepskyblue;
+  font-weight: bold;
+}
+
+.order-item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.left-img {
+  width: 200px;
+  height: auto;
+}
+
+.left-img img {
+  width: 200px;
+  height: auto;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.detail-info p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.detail-info p span {
+  color: orangered;
+}
+
+.button-container .btn:nth-child(1) {
+  margin-right: 10px;
+}
+
+.button-container {
+  margin-bottom: 10px;
+}
+
+.list-order h4 {
+  margin-top: 20px;
+}
+
+.edit-t label {
+  display: block;
+  width: 80px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+}
+
+.edit-t {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+.edit-t > form > div {
+  margin-bottom: 30px;
+}
