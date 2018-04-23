@@ -98,49 +98,51 @@ nav a:hover,
   text-decoration: none;
 }
 
-#gioHang {
-  width: 45px;
-  height: auto;
-}
-
-#DangNhap {
-  width: 45px;
-  height: auto;
-}
-
 .nav_top li:hover {
   -webkit-filter: brightness(0.3);
   filter: brightness(0.3);
   -webkit-filter: drop-shadow(4px 4px 5px white);
   filter: drop-shadow(4px 4px 5px white);
 }
-
+/* 
 .nav_top li:active {
   -webkit-filter: brightness(0.3);
   filter: brightness(0.3);
   -webkit-filter: drop-shadow(4px 4px 5px white);
   filter: drop-shadow(4px 4px 5px white);
-}
+} */
 
-.icon-items:hover {
+/* .icon-items:hover {
+  -webkit-filter: brightness(0.3);
+  filter: brightness(0.3);
+  -webkit-filter: drop-shadow(4px 4px 5px white);
+  filter: drop-shadow(4px 4px 5px white);
+} */
+
+.icon-items > div > a:hover {
   -webkit-filter: brightness(0.3);
   filter: brightness(0.3);
   -webkit-filter: drop-shadow(4px 4px 5px white);
   filter: drop-shadow(4px 4px 5px white);
 }
 
-.icon-items:active {
+/* .icon-items:active {
   -webkit-filter: brightness(0.3);
   filter: brightness(0.3);
   -webkit-filter: drop-shadow(4px 4px 5px white);
   filter: drop-shadow(4px 4px 5px white);
-}
+} */
 
 .navbar-master {
   /* position: fixed; */
   top: 0;
   left: 0;
   right: 0;
+}
+
+.navbar-master nav li a img {
+  width: 64px;
+  height: 64px;
 }
 
 #space_header {
@@ -213,4 +215,48 @@ footer {
 
 #none-hover:hover {
   background: none;
+}
+
+.memberNav img {
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.memberNav {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.popup-information-hide {
+  display: none;
+  position: absolute;
+  top: 64px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  background: #f05f40;
+  z-index: 100;
+  left: 0;
+  font-size: 18px;
+  width: 100%;
+}
+
+.memberNav:hover .popup-information-hide {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-information-hide a {
+  display: block;
+  height: 64px;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}
+
+.popup-information-hide a:hover {
+  background-color: rgb(214, 87, 58);
 }

@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/css/style_template.css">
-    <link rel="stylesheet" href="../public/css/style_personal_information.css">
+    <link rel="stylesheet" href="../../public/css/style_template.css">
+    <link rel="stylesheet" href="../../public/css/style_personal_information.css">
 </head>
 
 <body>
@@ -38,15 +38,20 @@
                     </li>
                     <li class="nav-item active icon-items">
                         <a href="#">
-                            <img id="gioHang" src="../public/img/shopping_cart.png" alt=""> Giỏ hàng
+                            <img id="gioHang" src="../../public/img/shopping_cart.png" alt=""> Giỏ hàng
                         </a>
                     </li>
                     <li class="nav-item icon-items">
-                        <a href="../views/signIn_Up.html">
-                            <img id="DangNhap" src="../public/img/icon-login.png" alt=""> Đăng nhập
-                        </a>
+                        <div class="memberNav">
+                            <a href="#">
+                                <img src="../../public/img/avatar.png" alt=""> Nguyễn Văn A
+                            </a>
+                            <div class="popup-information-hide">
+                                <a href="personalInformation.html">Thông tin cá nhân</a>
+                                <a href="../Guest/index.html">Đăng Xuất</a>
+                            </div>
+                        </div>
                     </li>
-
                 </ul>
             </div>
         </nav>
@@ -56,24 +61,24 @@
             <div class="nav_bottom">
                 <ul>
                     <li id="li_tc">
-                        <a href="../views/index.html">Trang Chủ</a>
+                        <a href="index.html">Trang Chủ</a>
                     </li>
                     <li>
-                        <a href="../views/lamAo.html">Làm Áo</a>
+                        <a href="lamAo.html">Làm Áo</a>
                     </li>
                     <li>
-                        <a href="../views/khuyenMai.html">Khuyến Mãi</a>
+                        <a href="khuyenMai.html">Khuyến Mãi</a>
                     </li>
                     <li>
-                        <a href="../views/aoHot.html">Áo Hot</a>
+                        <a href="aoHot.html">Áo Hot</a>
                     </li>
                     <li id="li_au">
                         <div>
                             <a href="#" id="none-hover">Danh mục</a>
                             <div class="list-shirt">
-                                <a href="../views/danhMuc.html">Áo thun</a>
-                                <a href="../views/danhMuc.html">Áo khoác</a>
-                                <a href="../views/danhMuc.html">Áo choàng</a>
+                                <a href="danhMuc.html">Áo thun</a>
+                                <a href="danhMuc.html">Áo khoác</a>
+                                <a href="danhMuc.html">Áo choàng</a>
                             </div>
                         </div>
                     </li>
@@ -84,7 +89,7 @@
     <div class="container">
         <div class="container-personal-information">
             <div class="avatar-edit">
-                <img src="../public/img/avatar.png" alt="" class="avatar-large">
+                <img src="../../public/img/avatar.png" alt="" class="avatar-large">
                 <button class="btn btn-primary">Thay đổi avatar</button>
             </div>
             <div class="edit-information">
