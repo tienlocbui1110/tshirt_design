@@ -1,72 +1,10 @@
-.nav {
-  background: #434343;
-  width: 100%;
-  font-size: 30px;
-  color: white;
-  height: 100px;
+body {
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
 }
 
-.nav p {
-  margin: auto;
-}
-
-.container {
-  padding: 0;
-  margin: 0;
-  width: 80%;
-  max-width: 100%;
-  padding: 30px 5%;
-}
-
-.root {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-}
-
-.left-control {
-  background: #434343;
-  width: 20%;
-}
-
-.left-control a {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 20px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 15px;
-}
-
-.active {
-  background: #868686;
-}
-
-.popular-product {
-  width: 200px;
-  height: 200px;
-}
-
-.container p {
-  font-size: 18px;
-}
-
-.number {
-  color: red;
-  font-weight: bold;
-}
-
-.member-name {
-  color: blue;
-  font-weight: bold;
-}
-
-.shirt-information {
-  color: deepskyblue;
-  font-weight: bold;
+.main-statistical {
+  padding: 40px;
 }
 
 .order-item {
@@ -112,6 +50,14 @@
   margin-top: 20px;
 }
 
+.container {
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  max-width: 100%;
+  padding: 30px 5%;
+}
+
 .edit-t label {
   display: block;
   width: 80px;
@@ -123,8 +69,156 @@
 .edit-t {
   margin-top: 20px;
   margin-left: 25px;
+  background-color: white;
 }
 
 .edit-t > form > div {
   margin-bottom: 30px;
+}
+
+div.input-group {
+  margin: 5px;
+}
+
+.container-personal-information {
+  max-width: 90%;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar-edit {
+  width: 300px;
+  height: auto;
+}
+
+.avatar-edit button {
+  margin-top: 25px;
+}
+
+.edit-information {
+  width: 100%;
+  text-align: left;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.edit-information p {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.avatar-large {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+form select {
+  text-align: right;
+}
+
+@media only screen and (min-width: 1140px) {
+  .container-personal-information {
+    max-width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .avatar-edit {
+    width: 150px;
+    height: auto;
+  }
+
+  .avatar-large {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.not-margin-left {
+  margin-left: 0px !important;
+}
+
+.homepage {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.homepage:hover {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+footer {
+  background-color: rgba(44, 62, 80, 1);
+  padding-top: 10px;
+  margin-top: 40px;
+  margin-left: 200px;
+  bottom: 0;
+  font-weight: lighter;
+  color: white;
+  font-size: 1.75em !important;
+}
+
+footer .row {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footerHeader {
+  width: 100%;
+  padding: 1em;
+  background-color: rgba(52, 73, 94, 1);
+  text-align: center;
+  color: white;
+}
+
+footer h3 {
+  font-weight: lighter;
+}
+
+footer ul {
+  padding-left: 5px;
+  list-style: none;
+}
+
+footer p {
+  text-align: justify;
+  font-size: 14px;
+}
+
+footer iframe {
+  width: 100%;
+  position: relative;
+  height: 170px;
+}
+
+footer .sm {
+  list-style: none;
+  overflow: auto;
+}
+
+footer .sm li {
+  display: inline;
+  padding: 5px;
+  float: left;
+}
+
+footer .sm li a img {
+  width: 32px;
+}
+
+body {
+  overflow: auto;
 }

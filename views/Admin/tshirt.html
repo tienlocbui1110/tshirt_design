@@ -1,118 +1,249 @@
-<!doctype html>
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v2.0.0
+* @link https://coreui.io
+* Copyright (c) 2018 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+
 <html lang="en">
 
 <head>
-    <title>My Design Clothes</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>CoreUI Free Bootstrap Admin Template</title>
+    <!-- Icons-->
+    <link href="../../public/vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="../../public/vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="../../public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../public/vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Main styles for this application-->
+    <link href="../../public/css/coreui.min.css" rel="stylesheet">
+    <link href="../../public/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../public/css/admin.css">
 </head>
 
-<body>
-    <div class="nav">
-        <p>Quản lý áo thun</p>
-    </div>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <header class="app-header navbar">
+        <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="nav navbar-nav ml-auto">
 
-    <div class="root">
-        <div class="left-control">
-            <a href="index.html">Trang Chủ</a>
-            <a href="order.html">Quản lý đơn hàng</a>
-            <a href="tshirt.html" class="active">Quản lý áo thun</a>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img class="img-avatar" src="../../public/img/avatar1.jpg" alt="admin@bootstrapmaster.com">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">
+                        <i class="fa fa-user"></i> Profile</a>
+                    <a class="dropdown-item" href="../Guest/index.html">
+                        <i class="fa fa-lock"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="nav-icon icon-speedometer"></i> Trang chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">
+                            <i class="nav-icon icon-speedometer"></i> Quản lý đơn hàng
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tshirt.html">
+                            <i class="nav-icon icon-speedometer"></i> Quản lý áo thun
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">
+                            <i class="nav-icon icon-speedometer"></i> Lịch sử giao dịch
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="coupon.html">
+                            <i class="nav-icon icon-speedometer"></i> Coupon
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
         </div>
-        <div class="container">
-            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';" style="float: right; ">Thêm áo mới</button>
-            <div class="list-order">
-                <h4>Skull Helmet Glass</h4>
-                <div class="order-item">
-                    <div class="left-img">
-                        <img src="../../public/img/ao1.jpg">
-                    </div>
-                    <div class="detail-info">
-                        <div class="button-container">
-                            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
+        <main class="main">
+            <!-- Breadcrumb-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Admin</a>
+                </li>
+                <li class="breadcrumb-item active">Quản lý đơn hàng</li>
+
+            </ol>
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+                    <div class="card main-statistical">
+                        <div class="card-body">
+                            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';" style="float: right; ">Thêm áo mới</button>
+                            <div class="list-order">
+                                <h4>Skull Helmet Glass</h4>
+                                <div class="order-item">
+                                    <div class="left-img">
+                                        <img src="../../public/img/ao1.jpg">
+                                    </div>
+                                    <div class="detail-info">
+                                        <div class="button-container">
+                                            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';">Sửa</button>
+                                            <button class="btn btn-danger">Xóa</button>
+                                        </div>
+                                        <p>Giá tiền:
+                                            <span>100.000đ</span>
+                                        </p>
+                                        <p>Kích cỡ:
+                                            <span>M</span>
+                                        </p>
+                                        <p>Số lượng:
+                                            <span>100</span>
+                                        </p>
+                                        <p>Tình Trạng:
+                                            <span>Áo đã in sẵn</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <h4>Skull Helmet Glass</h4>
+                                <div class="order-item">
+                                    <div class="left-img">
+                                        <img src="../../public/img/ao1.jpg">
+                                    </div>
+                                    <div class="detail-info">
+                                        <div class="button-container">
+                                            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';">Sửa</button>
+                                            <button class="btn btn-danger">Xóa</button>
+                                        </div>
+                                        <p>Giá tiền:
+                                            <span>100.000đ</span>
+                                        </p>
+                                        <p>Kích cỡ:
+                                            <span>M</span>
+                                        </p>
+                                        <p>Số lượng:
+                                            <span>100</span>
+                                        </p>
+                                        <p>Tình Trạng:
+                                            <span>Áo đã in sẵn</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <h4>Skull Helmet Glass</h4>
+                                <div class="order-item">
+                                    <div class="left-img">
+                                        <img src="../../public/img/ao1.jpg">
+                                    </div>
+                                    <div class="detail-info">
+                                        <div class="button-container">
+                                            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';">Sửa</button>
+                                            <button class="btn btn-danger">Xóa</button>
+                                        </div>
+                                        <p>Giá tiền:
+                                            <span>100.000đ</span>
+                                        </p>
+                                        <p>Kích cỡ:
+                                            <span>M</span>
+                                        </p>
+                                        <p>Số lượng:
+                                            <span>100</span>
+                                        </p>
+                                        <p>Tình Trạng:
+                                            <span>Áo đã in sẵn</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <nav aria-label="..." style="margin-top: 20px;">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">1</a>
+                                        <span class="sr-only">(current)</span>
+                                    </li>
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
-                        <p>Giá tiền:
-                            <span>100.000đ</span>
-                        </p>
-                        <p>Kích cỡ:
-                            <span>M</span>
-                        </p>
-                        <p>Số lượng:
-                            <span>100</span>
-                        </p>
-                        <p>Tình Trạng:
-                            <span>Áo đã in sẵn</span>
-                        </p>
-                    </div>
-                </div>
-                <h4>Skull Helmet Glass</h4>
-                <div class="order-item">
-                    <div class="left-img">
-                        <img src="../../public/img/ao1.jpg">
-                    </div>
-                    <div class="detail-info">
-                        <div class="button-container">
-                            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
-                        </div>
-                        <p>Giá tiền:
-                            <span>100.000đ</span>
-                        </p>
-                        <p>Kích cỡ:
-                            <span>M</span>
-                        </p>
-                        <p>Số lượng:
-                            <span>100</span>
-                        </p>
-                        <p>Tình Trạng:
-                            <span>Áo đã in sẵn</span>
-                        </p>
-                    </div>
-                </div>
-                <h4>Skull Helmet Glass</h4>
-                <div class="order-item">
-                    <div class="left-img">
-                        <img src="../../public/img/ao1.jpg">
-                    </div>
-                    <div class="detail-info">
-                        <div class="button-container">
-                            <button class="btn btn-primary" onclick="window.location.href='edittshirt.html';">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
-                        </div>
-                        <p>Giá tiền:
-                            <span>100.000đ</span>
-                        </p>
-                        <p>Kích cỡ:
-                            <span>M</span>
-                        </p>
-                        <p>Số lượng:
-                            <span>100</span>
-                        </p>
-                        <p>Tình Trạng:
-                            <span>Áo đã in sẵn</span>
-                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <footer>
+        <div class="footerHeader"></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>About us</h3>
+                <p> Họ tên 1: Bùi Tiến Lộc
+                    <br> MSSV 1: 1512298
+                    <br> Họ tên 2: Bùi Phúc Trung Vĩnh
+                    <br> MSSV 2: 1512677
+                    <br> Trang web bán áo. Đồ án môn lâp trình web. </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Our Location </h3>
+                <iframe src="https://maps.google.com/maps?q=hcmus&t=&z=13&ie=UTF8&iwloc=&output=embed" sytle="" frameborder="0" style="border:0"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="col-sm-4">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Phone : 123 - 456 - 789</li>
+                    <li>E-mail : webbanao@gmail.com</li>
+                    <li>Fax : 123 - 456 - 789</li>
+                </ul>
+                <p> Web bán hàng chất lượng và đảm bảo uy tín. </p>
+                <ul class="sm">
+                    <li>
+                        <a href="#">
+                            <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive"> </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive"> </a>
+                    </li>]
+                    <li>
+                        <a href="#">
+                            <img src="http://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive"> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap and necessary plugins-->
+    <script src="../../public/vendors/jquery/js/jquery.min.js"></script>
+    <script src="../../public/vendors/popper.js/js/popper.min.js"></script>
+    <script src="../../public/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../public/vendors/pace-progress/js/pace.min.js"></script>
+    <script src="../../public/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
+    <script src="../../public/vendors/@coreui/coreui/js/coreui.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="../../public/vendors/chart.js/js/Chart.min.js"></script>
+    <script src="../../public/vendors/@coreui/coreui-plugin-chartjs-custom-tooltips/js/custom-tooltips.min.js"></script>
     <script src="../../public/js/admin.js"></script>
 </body>
 

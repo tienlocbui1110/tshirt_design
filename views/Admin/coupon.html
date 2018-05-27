@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v2.0.0
+* @link https://coreui.io
+* Copyright (c) 2018 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>CoreUI Free Bootstrap Admin Template</title>
+    <!-- Icons-->
+    <link href="../../public/vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="../../public/vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="../../public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../public/vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <!-- Main styles for this application-->
+    <link href="../../public/css/coreui.min.css" rel="stylesheet">
+    <link href="../../public/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/admin.css">
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <header class="app-header navbar">
+        <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="nav navbar-nav ml-auto">
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img class="img-avatar" src="../../public/img/avatar1.jpg" alt="admin@bootstrapmaster.com">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">
+                        <i class="fa fa-user"></i> Profile</a>
+                    <a class="dropdown-item" href="../Guest/index.html">
+                        <i class="fa fa-lock"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="nav-icon icon-speedometer"></i> Trang chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">
+                            <i class="nav-icon icon-speedometer"></i> Quản lý đơn hàng
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tshirt.html">
+                            <i class="nav-icon icon-speedometer"></i> Quản lý áo thun
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">
+                            <i class="nav-icon icon-speedometer"></i> Lịch sử giao dịch
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="coupon.html">
+                            <i class="nav-icon icon-speedometer"></i> Coupon
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+        <main class="main">
+            <!-- Breadcrumb-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Admin</a>
+                </li>
+                <li class="breadcrumb-item active">Coupon</li>
+
+            </ol>
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+
+                    <div class="col-md-12">
+
+                        <h4>Coupon</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Searching -->
+                                <form action="coupon.html" method="POST" class="form-inline">
+                                    <div class="form-group mb-2">
+                                        <label for="coupon" class="sr-only">Mã Coupon</label>
+                                        <input type="text" class="form-control" id="coupon" placeholder="Mã Coupon">
+                                    </div>
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <label for="sale" class="sr-only">Giảm giá</label>
+                                        <input type="number" class="form-control" id="sale" placeholder="Phần trăm giảm giá">
+                                    </div>
+                                    <label for="coupon-expire">Ngày hết hạn</label>
+                                    <div id="coupon-expire" class="input-group date" data-date-format="dd-mm-yyyy">
+                                        <input class="form-control" readonly="" type="text">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Thêm Coupon</button>
+                                </form>
+                                <!-- order history -->
+                                <br>
+                                <table class="table table-responsive-sm table-hover table-outline mb-0">
+                                    <thead class="thead-light">
+                                        <tr>
+
+                                            <th>Mã Coupon</th>
+                                            <th>Số lượng còn lại</th>
+                                            <th>Ngày hết hạn</th>
+                                            <th>Giảm giá (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>X1014MS</div>
+                                            </td>
+                                            <td>
+                                                <div>1000</div>
+                                            </td>
+                                            <td>
+                                                <div>25/09/2019</div>
+                                            </td>
+                                            <td>
+                                                <div>10</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>A852X15</div>
+                                            </td>
+                                            <td>
+                                                <div>500</div>
+                                            </td>
+                                            <td>
+                                                <div>25/09/2019</div>
+                                            </td>
+                                            <td>
+                                                <div>15</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>B25KA25</div>
+                                            </td>
+                                            <td>
+                                                <div>152</div>
+                                            </td>
+                                            <td>
+                                                <div>01/03/2019</div>
+                                            </td>
+                                            <td>
+                                                <div>5</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>J2IEU22</div>
+                                            </td>
+                                            <td>
+                                                <div>5</div>
+                                            </td>
+                                            <td>
+                                                <div>31/12/2018</div>
+                                            </td>
+                                            <td>
+                                                <div>50</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>HWUJ584</div>
+                                            </td>
+                                            <td>
+                                                <div>0</div>
+                                            </td>
+                                            <td>
+                                                <div>30/10/2018</div>
+                                            </td>
+                                            <td>
+                                                <div>10</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>A82JK15</div>
+                                            </td>
+                                            <td>
+                                                <div>0</div>
+                                            </td>
+                                            <td>
+                                                <div>24/05/2018</div>
+                                            </td>
+                                            <td>
+                                                <div>10</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <nav aria-label="..." style="margin-top: 20px;">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                        </li>
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#">1</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">2</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <div class="footerHeader"></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>About us</h3>
+                <p> Họ tên 1: Bùi Tiến Lộc
+                    <br> MSSV 1: 1512298
+                    <br> Họ tên 2: Bùi Phúc Trung Vĩnh
+                    <br> MSSV 2: 1512677
+                    <br> Trang web bán áo. Đồ án môn lâp trình web. </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Our Location </h3>
+                <iframe src="https://maps.google.com/maps?q=hcmus&t=&z=13&ie=UTF8&iwloc=&output=embed" sytle="" frameborder="0" style="border:0"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="col-sm-4">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Phone : 123 - 456 - 789</li>
+                    <li>E-mail : webbanao@gmail.com</li>
+                    <li>Fax : 123 - 456 - 789</li>
+                </ul>
+                <p> Web bán hàng chất lượng và đảm bảo uy tín. </p>
+                <ul class="sm">
+                    <li>
+                        <a href="#">
+                            <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive"> </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive"> </a>
+                    </li>]
+                    <li>
+                        <a href="#">
+                            <img src="http://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive"> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap and necessary plugins-->
+    <script src="../../public/vendors/jquery/js/jquery.min.js"></script>
+    <script src="../../public/vendors/popper.js/js/popper.min.js"></script>
+    <script src="../../public/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../public/vendors/pace-progress/js/pace.min.js"></script>
+    <script src="../../public/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
+    <script src="../../public/vendors/@coreui/coreui/js/coreui.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="../../public/vendors/chart.js/js/Chart.min.js"></script>
+    <script src="../../public/vendors/@coreui/coreui-plugin-chartjs-custom-tooltips/js/custom-tooltips.min.js"></script>
+    <script src="../../public/js/admin.js"></script>
+</body>
+
+</html>
