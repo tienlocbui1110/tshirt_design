@@ -1,0 +1,84 @@
+.lichsu {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lichsu .navsearch {
+    margin-top: 20px;
+}
+
+.lichsu h2 {
+    color: rgb(63, 144, 219);
+    text-align: left;
+}
+
+.lichsu .listHistory {
+    margin-top: 30px;
+}
+
+.listHistory .card-header {
+    padding: 0px;
+    text-align: left;
+    padding: 5px 20px;
+}
+
+.listHistory .row {
+    margin-top: 20px;
+}
+
+.listHistory img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 50%;
+}
+
+.listHistory .card-body .second {
+    text-align: left;
+}
+
+.listHistory .card-body .second h5 {
+    font-weight: bold;
+    display: inline-block;
+    margin: 0px;
+    font-size: 18px;
+}
+
+.listHistory .card-body .second p {
+    font-size: 15px;
+    display: inline-block;
+    margin: 0px;
+}
+
+.action_hist {
+    margin-top: 15px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 0px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-left: rgb(63, 144, 219) 1px solid;
+    border-top: rgb(63, 144, 219) 1px solid;
+    border-bottom: rgb(63, 144, 219) 1px solid;
+  }
+  
+  #last {
+    border-right: rgb(63, 144, 219) 1px solid;
+  }
+  
+  .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    font-size: 16px;
+  }
