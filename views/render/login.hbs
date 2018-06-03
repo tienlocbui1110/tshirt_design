@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="/css/style_signIn_Up.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar-master">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="/">My Design Clothes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form action="searching.html" class="form-inline my-2 my-lg-0" style="height: 100%;">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-info my-2 my-sm-0" type="submit">
+                                <i class="fas fa-search fa-lg"></i>
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-item active icon-items">
+                        <a href="/cart">
+                            <img id="gioHang" src="/img/shopping_cart.png" alt=""> Giỏ hàng
+                        </a>
+                    </li>
+                    <li class="nav-item icon-items">
+                        <a href="/login">
+                            <img id="DangNhap" src="/img/icon-login.png" alt=""> Đăng nhập
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <p class="line"></p>
+        <div class="container">
+
+            <div class="nav_bottom">
+                <ul>
+                    <li id="li_tc">
+                        <a href="/">Trang Chủ</a>
+                    </li>
+                    <li>
+                        <a href="/lamAo">Làm Áo</a>
+                    </li>
+                    <li>
+                        <a href="/khuyenMai">Khuyến Mãi</a>
+                    </li>
+                    <li>
+                        <a href="/aoHot">Áo Hot</a>
+                    </li>
+                    <li id="li_au">
+                        <div>
+                            <a href="#" id="none-hover">Danh mục</a>
+                            <div class="list-shirt">
+                                <a href="/danhMuc">Áo thun</a>
+                                <a href="/danhMuc">Áo khoác</a>
+                                <a href="/danhMuc">Áo choàng</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="signIn_Up">
+        <div class="row">
+            <div id="signIn" class="col-sm-6">
+                <div class="form_logIn">
+                    <h1>Sign in</h1>
+                    <form action="/login" method="POST">
+                        <label for="login_field">Email</label>
+                        <input type="text" name="email" id="login_field" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off"
+                            autofocus="autofocus" />
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control form-control input-block" tabindex="2" />
+                        <input type="submit" name="commit_signin" value="Sign in" tabindex="3" class="btn btn-primary btn-block" data-disable-with="Signing in…"
+                        />
+                    </form>
+                </div>
+            </div>
+            <div id="signUp" class="col-sm-6">
+                <div class="form_logUp">
+                    <h1>Sign Up</h1>
+                    <form action="/signup" method="POST">
+                        <label for="login_Email">Email</label>
+                        <input type="text" name="email" id="login_Email" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off"
+                            autofocus="autofocus" />
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control form-control input-block" tabindex="2" />
+                        <input type="submit" name="commit_signup" value="Sign up" tabindex="3" class="btn btn-primary btn-block" data-disable-with="Signing in…"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

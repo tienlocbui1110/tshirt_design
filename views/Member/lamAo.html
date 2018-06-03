@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../public/css/style_template.css">
-    <link rel="stylesheet" href="../../public/css/style_lamAo.css">
+    <link rel="stylesheet" href="/css/style_template.css">
+    <link rel="stylesheet" href="/css/style_lamAo.css">
 </head>
 
 <body>
     <!-- Navbar -->
     <div class="navbar-master">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="index.html">My Design Clothes</a>
+            <a class="navbar-brand" href="/">My Design Clothes</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,19 +37,19 @@
                         </form>
                     </li>
                     <li class="nav-item active icon-items">
-                        <a href="cart.html">
-                            <img id="gioHang" src="../../public/img/shopping_cart.png" alt=""> Giỏ hàng
+                        <a href="/cart">
+                            <img id="gioHang" src="/img/shopping_cart.png" alt=""> Giỏ hàng
                         </a>
                     </li>
                     <li class="nav-item icon-items">
                         <div class="memberNav">
                             <a href="#">
-                                <img src="../../public/img/avatar2.png" alt=""> Nguyễn Văn A
+                                <img src="/img/avatar2.png" alt=""> Nguyễn Văn A
                             </a>
                             <div class="popup-information-hide">
-                                <a href="personalInformation.html">Thông tin cá nhân</a>
-                                <a href="lichsu.html">Lịch sử mua hàng</a>
-                                <a href="../Guest/index.html">Đăng Xuất</a>
+                                <a href="/info">Thông tin cá nhân</a>
+                                <a href="/lichsu">Lịch sử mua hàng</a>
+                                <a href="/logout">Đăng Xuất</a>
                             </div>
                         </div>
                     </li>
@@ -62,24 +62,24 @@
             <div class="nav_bottom">
                 <ul>
                     <li id="li_tc">
-                        <a href="index.html">Trang Chủ</a>
+                        <a href="/">Trang Chủ</a>
                     </li>
                     <li>
-                        <a href="lamAo.html">Làm Áo</a>
+                        <a href="/lamAo">Làm Áo</a>
                     </li>
                     <li>
-                        <a href="khuyenMai.html">Khuyến Mãi</a>
+                        <a href="/khuyenMai">Khuyến Mãi</a>
                     </li>
                     <li>
-                        <a href="aoHot.html">Áo Hot</a>
+                        <a href="/aoHot">Áo Hot</a>
                     </li>
                     <li id="li_au">
                         <div>
                             <a href="#" id="none-hover">Danh mục</a>
                             <div class="list-shirt">
-                                <a href="danhMuc.html">Áo thun</a>
-                                <a href="danhMuc.html">Áo khoác</a>
-                                <a href="danhMuc.html">Áo choàng</a>
+                                <a href="/danhMuc">Áo thun</a>
+                                <a href="/danhMuc">Áo khoác</a>
+                                <a href="/danhMuc">Áo choàng</a>
                             </div>
                         </div>
                     </li>
@@ -94,7 +94,7 @@
             <div class="container_lamAo">
                 <div class="row">
                     <div class="col-sm-8">
-                        <img id="display" src="../../public/img/ao1.jpg" alt="">
+                        <img id="display" src="/img/ao1.jpg" alt="">
                     </div>
                     <div class="col-sm-4">
                         <div class="choice">
@@ -102,8 +102,8 @@
                             <hr>
                             <p>Mẫu áo:</p>
                             <div class="mauAo">
-                                <img name="mauAo01" class="mauAo_active" src="../../public/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
-                                <img name="mauAo01" src="../../public/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
+                                <img name="mauAo01" class="mauAo_active" src="/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
+                                <img name="mauAo01" src="/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
                                 <br>
                                 <br>
                             </div>
@@ -117,9 +117,8 @@
                             </div>
                             <p>Mẫu hình:</p>
                             <div class="mauHinh">
-                                <img name="mauHinh01" class="mauHinh_active" src="../../public/img/mauHinh01.jpg" onclick="LamAoSelected_mauHinh(this);"
-                                    alt="">
-                                <img name="mauHinh02" src="../../public/img/mauHinh02.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
+                                <img name="mauHinh01" class="mauHinh_active" src="/img/mauHinh01.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
+                                <img name="mauHinh02" src="/img/mauHinh02.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
                                 <br>
                                 <br>
                             </div>
@@ -186,7 +185,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="../../public/js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

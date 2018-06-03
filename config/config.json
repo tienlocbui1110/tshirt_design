@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Loc1511",
+    "database": "tshirt",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "Loc1511",
+    "database": "tshirt_test",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "Loc1511",
+    "database": "tshirt_production",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  }
+}

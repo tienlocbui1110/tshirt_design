@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="/css/style_lamAo.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar-master">
+        {{#if payload.authenticated}} {{>loggedInNavBarInformation}} {{else}} {{>notLoggedInNavBarInformation}} {{/if}}
+        <p class="line"></p>
+        <div class="container">
+
+            <div class="nav_bottom">
+                <ul>
+                    <li id="li_tc">
+                        <a href="/">Trang Chủ</a>
+                    </li>
+                    <li>
+                        <a href="/lamAo">Làm Áo</a>
+                    </li>
+                    <li>
+                        <a href="/khuyenMai">Khuyến Mãi</a>
+                    </li>
+                    <li>
+                        <a href="/aoHot">Áo Hot</a>
+                    </li>
+                    <li id="li_au">
+                        <div>
+                            <a href="#" id="none-hover">Danh mục</a>
+                            <div class="list-shirt">
+                                <a href="/danhMuc">Áo thun</a>
+                                <a href="/danhMuc">Áo khoác</a>
+                                <a href="/danhMuc">Áo choàng</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="lamAo" onload="LamAoSelected_display()">
+            <h2>Làm áo</h2>
+            <div class="container_lamAo">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img id="display" src="/img/ao1.jpg" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="choice">
+                            <h5>Giá: 100000đ</h5>
+                            <hr>
+                            <p>Mẫu áo:</p>
+                            <div class="mauAo">
+                                <img name="mauAo01" class="mauAo_active" src="/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
+                                <img name="mauAo01" src="/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
+                                <br>
+                                <br>
+                            </div>
+                            <p>Màu sắc:</p>
+                            <div class="mauSac">
+                                <div name="orange" class="orange mauSac_active" onclick="LamAoSelected_mauSac(this);"></div>
+                                <div name="blue" class="blue" onclick="LamAoSelected_mauSac(this);"></div>
+                                <div name="black" class="black" onclick="LamAoSelected_mauSac(this);"></div>
+                                <br>
+                                <br>
+                            </div>
+                            <p>Mẫu hình:</p>
+                            <div class="mauHinh">
+                                <img name="mauHinh01" class="mauHinh_active" src="/img/mauHinh01.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
+                                <img name="mauHinh02" src="/img/mauHinh02.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
+                                <br>
+                                <br>
+                            </div>
+                            <p>Kích cỡ:</p>
+                            <select class="form-control" id="sel1">
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                            </select>
+                            <hr>
+                            <button class="btn btn-success">Cho vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
