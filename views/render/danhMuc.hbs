@@ -23,11 +23,11 @@
                     </li>
                     <li id="li_au">
                         <div>
-                            <a href="#" id="none-hover">Danh mục</a>
+                            <a href="/danhMuc" id="none-hover">Danh mục</a>
                             <div class="list-shirt">
-                                <a href="/danhMuc">Áo thun</a>
-                                <a href="/danhMuc">Áo khoác</a>
-                                <a href="/danhMuc">Áo choàng</a>
+                                <a href="/danhMuc/aothun">Áo thun</a>
+                                <a href="/danhMuc/aocotim">Áo cổ tim</a>
+                                <a href="/danhMuc/aohoddie">Áo hoddie</a>
                             </div>
                         </div>
                     </li>
@@ -38,13 +38,13 @@
     <div class="container">
         <div class="left-list">
             <div>
-                <a href="/danhMuc" class="nav-left-list-active">Áo thun</a>
+                <a href="/danhMuc/aothun" class="nav-left-list-active">Áo thun</a>
             </div>
             <div>
-                <a href="/danhMuc">Áo khoác</a>
+                <a href="/danhMuc/aocotim">Áo cổ tim</a>
             </div>
             <div>
-                <a href="/danhMuc">Áo choàng</a>
+                <a href="/danhMuc/aohoddie">Áo Hoddie</a>
             </div>
         </div>
         <div class="gallery">
@@ -68,5 +68,6 @@
                 </div>
                 {{/each}}
             </div>
+            {{{paginate pagination leftText="&lt" rightText="&gt"}}}
         </div>
     </div>
