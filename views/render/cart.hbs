@@ -47,14 +47,15 @@
             </nav>
             <h2 id="name" style="text-align: left;margin-top:25px; margin-bottom:55px;">Giỏ hàng</h2>
             <div class="shopping-cart-list">
+                {{#each payload.shirtsCart}}
                 <div class="shopping-cart-item">
                     <div class="shopping-cart-item-img">
-                        <img src="/img/ao1.jpg" alt="">
+                        <img src="{{this.imgPath}}" alt="">
                     </div>
                     <div class="shopping-cart-item-information">
-                        <a href="/">Skull Helmet Glass</a>
+                        <a href="/">{{this.name}}</a>
                         <p>Giá tiền:
-                            <span>100.000đ</span>
+                            <span>{{this.cost}}đ</span>
                         </p>
                         <button class="btn btn-danger">XÓA</button>
                     </div>
@@ -62,21 +63,23 @@
                         <button class="shopping-cart-item-minus">
                             <img src="/img/minus.png" alt="" style="color:transparent">
                         </button>
-                        <div style="height: 32px;">1</div>
+                        <div style="height: 32px;">{{this.count}}</div>
                         <button class="shopping-cart-item-plus">
                             <img src="/img/add.png" alt="">
                         </button>
                     </div>
                 </div>
                 <hr>
+                {{/each}}
+                {{#if payload.cart.haveItem}}
                 <div class="shopping-cart-item">
                     <div class="shopping-cart-item-img">
-                        <img src="/img/ao2.jpg" alt="">
+                        <img src="{{payload.lastShirts.imgPath}}" alt="">
                     </div>
                     <div class="shopping-cart-item-information">
-                        <a href="/">Skull Pivate Green</a>
+                        <a href="/">{{name}}</a>
                         <p>Giá tiền:
-                            <span>120.000đ</span>
+                            <span>{{payload.lastShirts.cost}}đ</span>
                         </p>
                         <button class="btn btn-danger">XÓA</button>
                     </div>
@@ -84,14 +87,19 @@
                         <button class="shopping-cart-item-minus">
                             <img src="/img/minus.png" alt="" style="color:transparent">
                         </button>
-                        <div style="height: 32px;">1</div>
+                        <div style="height: 32px;">{{payload.lastShirts.count}}</div>
                         <button class="shopping-cart-item-plus">
                             <img src="/img/add.png" alt="">
                         </button>
                     </div>
                 </div>
+                {{/if}}
             </div>
+            {{#if payload.cart.haveItem}}
             <button class="btn btn-primary" onclick="location.href='/login';">Thanh toán</button>
+            {{else}}
+            <button class="btn btn-primary" onclick="location.href='/login';" disabled>Thanh toán</button>
+            {{/if}}
         </div>
 
     </div>

@@ -3,32 +3,34 @@ var router = express.Router();
 var passport = require("passport");
 var Utils = require("../utils");
 var db = require("../models");
-var cookieParser = require("cookie-parser");
 var khuyenmaishirtController = require("./../controllers/khuyenmaishirtController");
 var shirtController = require("./../controllers/shirtController");
+var request = require('request');
+var querystring = require('querystring');
+var utils = require("../utils");
 
 // GET REQUEST
 
 router.get("/", function (req, res) {
   // get Designed Shirt
   db.khuyenmaishirt.findAll({
-      where: {
-        status: true,
-        isPublic: true
-      },
-      limit: 8
-    })
+    where: {
+      status: true,
+      isPublic: true
+    },
+    limit: 8
+  })
     .then(kmshirts => {
       db.Shirt.findAll({
-          where: {
-            status: true,
-            isPublic: true
-          },
-          order: [
-            ['soluongmua', 'DESC']
-          ],
-          limit: 8
-        })
+        where: {
+          status: true,
+          isPublic: true
+        },
+        order: [
+          ['soluongmua', 'DESC']
+        ],
+        limit: 8
+      })
         .then(hotshirts => {
           payload = {};
           payload.kmshirts = kmshirts;
@@ -95,15 +97,15 @@ router.get("/khuyenMai", function (req, res) {
 router.get("/aoHot", function (req, res) {
   // get Designed Shirt
   db.Shirt.findAll({
-      where: {
-        status: true,
-        isPublic: true
-      },
-      order: [
-        ['soluongmua', 'DESC']
-      ],
-      limit: 12
-    })
+    where: {
+      status: true,
+      isPublic: true
+    },
+    order: [
+      ['soluongmua', 'DESC']
+    ],
+    limit: 12
+  })
     .then(shirts => {
       payload = {};
       payload.shirts = shirts;
@@ -198,18 +200,71 @@ router.get("/danhMuc/aohoddie", function (req, res) {
 });
 
 router.get("/cart", function (req, res) {
-  if (req.isAuthenticated()) {
-    res.render("render/cart", {
-      payload: {
-        authenticated: true
-      }
-    });
+  if (req.cookies.cart == "") {
+    if (req.isAuthenticated()) {
+      res.render("render/cart", {
+        payload: {
+          authenticated: true,
+          cart: {
+            haveItem: false
+          }
+        }
+      });
+    } else {
+      res.render("render/cart", {
+        payload: {
+          authenticated: false,
+          cart: {
+            haveItem: false
+          }
+        }
+      });
+    }
   } else {
-    res.render("render/cart", {
-      payload: {
-        authenticated: false
-      }
-    });
+    var cookiesCart = JSON.parse(req.cookies.cart);
+    let shirts = [];
+    let count = 0;
+    let dataLength = cookiesCart.data.length;
+    // async to get cart before render
+    for (let data of cookiesCart.data) {
+      shirtController.getShirt(data.id, function (shirt) {
+        count++;
+        if (!shirt) {
+          cookiesCart.length -= data.length;
+        } else {
+          shirt.count = data.length;
+          shirts.push(shirt);
+        }
+        if (count == dataLength) {
+          lastShirts = shirts.pop();
+          console.log(lastShirts.length);
+          // update layout
+          if (req.isAuthenticated()) {
+            res.render("render/cart", {
+              payload: {
+                authenticated: true,
+                shirtsCart: shirts,
+                lastShirts: lastShirts,
+                cart: {
+                  haveItem: true
+                }
+              }
+            });
+          } else {
+            res.render("render/cart", {
+              payload: {
+                authenticated: false,
+                shirtsCart: shirts,
+                lastShirts: lastShirts,
+                cart: {
+                  haveItem: true
+                }
+              }
+            });
+          }
+        }
+      });
+    }
   }
 });
 
@@ -238,27 +293,118 @@ router.get("/login", function (req, res) {
   if (req.isAuthenticated()) {
     res.redirect("/");
   } else {
-    res.render("render/login");
+    if (req.query.failedSignUp == "true") {
+      res.render("render/login", {
+        payload: {
+          failedSignUp: true,
+          failedSignUpMessage: req.query.failedSignUpMessage
+        }
+      });
+    } else if (req.query.failedSignIn == "true") {
+      res.render("render/login", {
+        payload: {
+          failedSignIn: true,
+          failedSignInMessage: req.query.failedSignInMessage
+        }
+      });
+    } else {
+      res.render("render/login");
+    }
   }
 });
 
 // POST REQUEST
 router.post(
-  "/login",
-  passport.authenticate("local-login", {
-    successRedirect: "/", // redirect to the secure profile section
-    failureRedirect: "/login", // redirect back to the signup page if there is an error
-    failureFlash: true // allow flash messages
-  })
-);
+  "/login", function (req, res, next) {
+    utils.validateEmail(req, res, "failedSignIn", "failedSignInMessage", function () {
+
+      // check the reCaptcha v2
+      var secretKey = "6LeH-mAUAAAAAGLRChzCagdlFhn3iVi2CTWhv9Mn";
+      var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+      // req / res held in closure
+      // Hitting GET request to the URL, Google will respond with success or error scenario.
+      request(verificationUrl, function (error, response, body) {
+        body = JSON.parse(body);
+        // Success will be true or false depending upon captcha validation.
+        if (body.success !== undefined && !body.success) {
+          const query = querystring.stringify({
+            failedSignIn: true,
+            failedSignInMessage: "Incorrect Captcha."
+          });
+          return res.redirect('/login?' + query);
+        } else {
+          passport.authenticate("local-login", function (err, user, info) {
+            if (err) { return next(err); }
+            if (!user) {
+              const query = querystring.stringify({
+                failedSignIn: true,
+                failedSignInMessage: "Email or password incorrect."
+              });
+              return res.redirect('/login?' + query);
+            } else {
+              return req.logIn(user, function (err) {
+                if (err) {
+                  const query = querystring.stringify({
+                    failedSignIn: true,
+                    failedSignInMessage: "Error when Sign in."
+                  });
+                  return res.redirect('/login?' + query);
+                } else {
+                  return res.redirect("/");
+                }
+              });
+            }
+          })(req, res, next);
+        }
+      });
+    });
+  });
+
 
 router.post(
-  "/signup",
-  passport.authenticate("local-signup", {
-    successRedirect: "/ok", // redirect to the secure profile section
-    failureRedirect: "/login", // redirect back to the signup page if there is an error
-    failureFlash: true // allow flash messages
-  })
-);
+  "/signup", function (req, res, next) {
+    utils.validateEmail(req, res, "failedSignUp", "failedSignUpMessage", function () {
+      // check the reCaptcha v2
+      var secretKey = "6LeH-mAUAAAAAGLRChzCagdlFhn3iVi2CTWhv9Mn";
+      var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+
+      request(verificationUrl, function (error, response, body) {
+        body = JSON.parse(body);
+        // Success will be true or false depending upon captcha validation.
+        if (body.success !== undefined && !body.success) {
+          //if (0) {
+          const query = querystring.stringify({
+            failedSignUp: true,
+            failedSignUpMessage: "Incorrect Captcha."
+          });
+          res.redirect("/login?" + query);
+        } else {
+          passport.authenticate("local-signup", function (err, user, info) {
+
+            if (err) { return next(err); }
+            if (!user) {
+              const query = querystring.stringify({
+                failedSignUp: true,
+                failedSignUpMessage: "That user is already taken."
+              });
+              return res.redirect('/login?' + query);
+            } else {
+              return req.logIn(user, function (err) {
+                if (err) {
+                  const query = querystring.stringify({
+                    failedSignUp: true,
+                    failedSignUpMessage: "Error when signup."
+                  });
+                  return res.redirect('/login?' + query);
+                } else {
+                  return res.redirect("/");
+                }
+              });
+            }
+          })(req, res, next);
+        }
+      });
+    });
+  });
 
 module.exports = router;

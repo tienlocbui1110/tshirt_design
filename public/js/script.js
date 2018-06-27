@@ -4,10 +4,11 @@ var itemInCart = {
   data: []
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
   getAmoutInCart();
   handleNAmountInCart();
   handleAmountShoppingCart();
+  deleteItemsCart();
 });
 
 function handleAmountShoppingCart() {
@@ -23,7 +24,7 @@ function handleOnClickAmount(shoppingCartDivAmount) {
   var shoppingCartAmountButton = $(shoppingCartDivAmount).children("button");
   var shoppingCartAmount = $(shoppingCartDivAmount).children("div");
   var shoppingCartAmountNumber = parseInt(shoppingCartAmount.text());
-  shoppingCartAmountButton.on("click", function() {
+  shoppingCartAmountButton.on("click", function () {
     // check current button
     if ($(this).hasClass("shopping-cart-item-minus")) {
       if (shoppingCartAmountNumber > 0) {
@@ -98,7 +99,7 @@ function LamAoSelected_mauHinh(select) {
 }
 
 function handleNAmountInCart() {
-  $(".cost").on("click", function() {
+  $(".cost").on("click", function () {
     // set item
     var id = $(this)[0].id;
     var iter = 0;
@@ -141,6 +142,23 @@ function getAmoutInCart() {
   }
 }
 
+function deleteItemInCart(position) {
+  if (getCookie("cart") != "") {
+    var json_str = getCookie("cart");
+    itemInCart = JSON.parse(json_str);
+    if (position < itemInCart.length) {
+      var tmpCut = itemInCart.data.splice(position, 1);
+      itemInCart.length -= tmpCut[0].length;
+    }
+    if (itemInCart.length == 0) {
+      setCookie("cart", "");
+    } else {
+      json_str = JSON.stringify(itemInCart);
+      setCookie("cart", json_str);
+    }
+  }
+}
+
 function setCookie(cname, cvalue) {
   document.cookie = cname + "=" + cvalue + ";path=/";
 }
@@ -159,4 +177,14 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+
+function deleteItemsCart() {
+  $(".shopping-cart-item-information button").on("click", function () {
+    var index = $(this).parent().parent().index(".shopping-cart-item");
+    $(this).parent().parent().next("hr").remove();
+    $(this).parent().parent().remove();
+    deleteItemInCart(index);
+    window.location.replace("/cart");
+  });
 }
