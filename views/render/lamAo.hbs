@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/style_lamAo.css">
+<script src="/js/fabric.min.js"></script>
 </head>
 
 <body>
@@ -38,21 +39,33 @@
     </div>
 
     <div class="container">
-        <div class="lamAo" onload="LamAoSelected_display()">
+        <div class="lamAo">
             <h2>Làm áo</h2>
             <div class="container_lamAo">
                 <div class="row">
                     <div class="col-sm-8">
-                        <img id="display" src="/img/ao1.jpg" alt="">
+                        <canvas id="display" width="760" height="560"></canvas>
                     </div>
                     <div class="col-sm-4">
                         <div class="choice">
                             <h5>Giá: 100000đ</h5>
                             <hr>
+                            <p>Mẫu hình:</p>
+                            <div class="mauHinh">
+                                <form action="/lamAo/upload" method="POST" enctype="multipart/form-data">
+                                    <div class="file-field input-field">
+                                        <div class="btn grey">
+                                            <span>File</span>
+                                            <input name="myImage" type="file">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn">Upload !</button>
+                                </form>
+                            </div>
                             <p>Mẫu áo:</p>
                             <div class="mauAo">
-                                <img name="mauAo01" class="mauAo_active" src="/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
-                                <img name="mauAo01" src="/img/mauAo01.jpg" onclick="LamAoSelected_mauAo(this);" alt="">
+                                {{#each payload.mauAos}}
+                                <img name="{{name}}" src="{{imgPath}}" onclick="LamAoSelected_mauAo(this);" alt=""> {{/each}}
                                 <br>
                                 <br>
                             </div>
@@ -61,13 +74,6 @@
                                 <div name="orange" class="orange mauSac_active" onclick="LamAoSelected_mauSac(this);"></div>
                                 <div name="blue" class="blue" onclick="LamAoSelected_mauSac(this);"></div>
                                 <div name="black" class="black" onclick="LamAoSelected_mauSac(this);"></div>
-                                <br>
-                                <br>
-                            </div>
-                            <p>Mẫu hình:</p>
-                            <div class="mauHinh">
-                                <img name="mauHinh01" class="mauHinh_active" src="/img/mauHinh01.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
-                                <img name="mauHinh02" src="/img/mauHinh02.jpg" onclick="LamAoSelected_mauHinh(this);" alt="">
                                 <br>
                                 <br>
                             </div>
@@ -86,3 +92,4 @@
             </div>
         </div>
     </div>
+    <img src="{{file}}" class="responsive-img">

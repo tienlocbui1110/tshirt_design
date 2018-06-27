@@ -4,7 +4,9 @@ var itemInCart = {
   data: []
 };
 
-$(document).ready(function() {
+var imgSave = new fabric.Text('SaveImg', {});
+
+$(document).ready(function () {
   getAmoutInCart();
   handleNAmountInCart();
   handleAmountShoppingCart();
@@ -23,7 +25,7 @@ function handleOnClickAmount(shoppingCartDivAmount) {
   var shoppingCartAmountButton = $(shoppingCartDivAmount).children("button");
   var shoppingCartAmount = $(shoppingCartDivAmount).children("div");
   var shoppingCartAmountNumber = parseInt(shoppingCartAmount.text());
-  shoppingCartAmountButton.on("click", function() {
+  shoppingCartAmountButton.on("click", function () {
     // check current button
     if ($(this).hasClass("shopping-cart-item-minus")) {
       if (shoppingCartAmountNumber > 0) {
@@ -49,19 +51,25 @@ function LamAoSelected_display() {
   var mauSac = document.querySelectorAll(".mauSac div");
   for (i = 0; i < mauSac.length; i++) {
     if (mauSac[i].classList.contains("mauSac_active")) {
-      path += mauSac[i].getAttribute("name") + "_";
-      break;
-    }
-  }
-  var mauHinh = document.querySelectorAll(".mauHinh img");
-  for (i = 0; i < mauHinh.length; i++) {
-    if (mauHinh[i].classList.contains("mauHinh_active")) {
-      path += mauHinh[i].getAttribute("name") + ".jpg";
+      path += mauSac[i].getAttribute("name") + ".jpg";
       break;
     }
   }
   console.log(path);
-  document.getElementById("display").src = path;
+  var canvas = new fabric.Canvas("display");
+  canvas.remove(imgSave);
+  fabric.Image.fromURL(path, function (img) {
+    img.scaleToHeight(500);
+    img.set({
+      left: 380,
+      top: 280,
+      originX: 'center',
+      originY: 'center'
+    });
+    imgSave = img;
+    canvas.setBackgroundImage(img);
+  });
+  canvas.renderAll();
 }
 
 function LamAoSelected_mauAo(select) {
@@ -86,19 +94,8 @@ function LamAoSelected_mauSac(select) {
   LamAoSelected_display();
 }
 
-function LamAoSelected_mauHinh(select) {
-  var a = document.querySelectorAll(".mauHinh img");
-  for (i = 0; i < a.length; i++) {
-    // Remove the class 'active' if it exists
-    a[i].classList.remove("mauHinh_active");
-  }
-  // add 'active' classs to the element that was clicked
-  select.classList.add("mauHinh_active");
-  LamAoSelected_display();
-}
-
 function handleNAmountInCart() {
-  $(".cost").on("click", function() {
+  $(".cost").on("click", function () {
     // set item
     var id = $(this)[0].id;
     var iter = 0;
@@ -114,12 +111,18 @@ function handleNAmountInCart() {
         if (iter === itemInCart.data.length) {
           // callback
           if (checkbool === false) {
-            itemInCart.data.push({ id: id, length: 1 });
+            itemInCart.data.push({
+              id: id,
+              length: 1
+            });
           }
         }
       });
     else {
-      itemInCart.data.push({ id: id, length: 1 });
+      itemInCart.data.push({
+        id: id,
+        length: 1
+      });
       // re-setup cookie
     }
 
