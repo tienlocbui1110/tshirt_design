@@ -61,7 +61,7 @@ img.mauAo_active {
     border: 2px rgb(63, 144, 219) solid;
 }
 
-.mauSac div {
+.mauSac div{
     width: 50px;
     height: 50px;
     float: left;
@@ -69,15 +69,15 @@ img.mauAo_active {
     margin: 1px;
 }
 
-.mauSac div.orange {
+.mauSac div.orange{
     background: orange;
 }
 
-.mauSac div.blue {
+.mauSac div.blue{
     background: blue;
 }
 
-.mauSac div.black {
+.mauSac div.black{
     background: black;
 }
 
@@ -104,10 +104,6 @@ img.mauHinh_active {
     border: 2px rgb(63, 144, 219) solid;
 }
 
-.form-control {
+.form-control{
     width: 50%;
-}
-
-#display {
-    border: 3px rgb(63, 144, 219) solid;
 }

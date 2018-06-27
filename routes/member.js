@@ -4,11 +4,8 @@ var passport = require("passport");
 var Utils = require("../utils");
 var db = require("../models");
 var cookieParser = require("cookie-parser");
-var multer = require('multer');
-const path = require('path');
 var khuyenmaishirtController = require("./../controllers/khuyenmaishirtController");
 var shirtController = require("./../controllers/shirtController");
-var mauAoController = require("./../controllers/mauAoController");
 
 // GET REQUEST
 
@@ -53,86 +50,21 @@ router.get("/", function (req, res) {
     });
 });
 
-// -- For upload file --
-// Set The Storage Engine
-const storage = multer.diskStorage({
-  destination: './public/uploads/',
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  }
-});
-// Init Upload
-const upload = multer({
-  storage: storage,
-  limits: {
-    fileSize: 1000000
-  },
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  }
-}).single('myImage');
-// Check File Type
-function checkFileType(file, cb) {
-  // Allowed ext
-  const filetypes = /jpeg|jpg|png/;
-  // Check ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // Check mime
-  const mimetype = filetypes.test(file.mimetype);
-
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    cb('Error: Images Only!');
-  }
-}
-// End -- For upload file --
 router.get("/lamAo", function (req, res) {
-  mauAoController.getMauAoAll(function (mauAos) {
-    payload = {};
-    payload.mauAos = mauAos;
-    if (req.isAuthenticated()) {
-      payload.authenticated = true;
-    } else {
-      payload.authenticated = false;
-    }
+  if (req.isAuthenticated()) {
     res.render("render/lamAo", {
-      payload
-    });
-  });
-});
-
-router.post('/lamAo/upload', (req, res) => {
-  mauAoController.getMauAoAll(function (mauAos) {
-    upload(req, res, (err) => {
-      if (err) {
-        res.render('render/lamAo', {
-          msg: err
-        });
-      } else {
-        if (req.file == undefined) {
-          res.render('render/lamAo', {
-            msg: 'Error: No File Selected!'
-          });
-        } else {
-          payload = {};
-          payload.mauAos = mauAos;
-          if (req.isAuthenticated()) {
-            payload.authenticated = true;
-          } else {
-            payload.authenticated = false;
-          }
-          res.render("render/lamAo", {
-            payload,
-            msg: 'File Uploaded!',
-            file: `/uploads/${req.file.filename}`
-          });
-        }
+      payload: {
+        authenticated: true
       }
     });
-  });
+  } else {
+    res.render("render/lamAo", {
+      payload: {
+        authenticated: false
+      }
+    });
+  }
 });
-//
 
 router.get("/khuyenMai", function (req, res) {
   var page = parseInt(req.query.page);
