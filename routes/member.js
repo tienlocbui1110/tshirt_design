@@ -214,7 +214,8 @@ router.get("/danhMuc/aothun", function (req, res) {
         limit: 12,
         page: page,
         totalRows: totalRows
-      }
+      },
+      isAoThun: true
     });
   });
 });
@@ -238,7 +239,8 @@ router.get("/danhMuc/aocotim", function (req, res) {
         limit: 12,
         page: page,
         totalRows: totalRows
-      }
+      },
+      isAoCoTim : true
     });
   });
 });
@@ -261,8 +263,9 @@ router.get("/danhMuc/aohoddie", function (req, res) {
       pagination: {
         limit: 12,
         page: page,
-        totalRows: totalRows
-      }
+        totalRows: totalRows,
+      },
+      isHoddie: true
     });
   });
 });

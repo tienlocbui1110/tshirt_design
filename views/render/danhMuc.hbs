@@ -38,13 +38,25 @@
     <div class="container">
         <div class="left-list">
             <div>
+                {{#if isAoThun}}
                 <a href="/danhMuc/aothun" class="nav-left-list-active">Áo thun</a>
+                {{else}}
+                <a href="/danhMuc/aothun">Áo thun</a>
+                {{/if}}
             </div>
             <div>
+                {{#if isAoCoTim}}
+                <a href="/danhMuc/aocotim" class="nav-left-list-active">Áo cổ tim</a>
+                {{else}}
                 <a href="/danhMuc/aocotim">Áo cổ tim</a>
+                {{/if}}
             </div>
             <div>
+                {{#if isHoddie}}
+                <a href="/danhMuc/aohoddie" class="nav-left-list-active">Áo Hoddie</a>
+                {{else}}
                 <a href="/danhMuc/aohoddie">Áo Hoddie</a>
+                {{/if}}
             </div>
         </div>
         <div class="gallery">
