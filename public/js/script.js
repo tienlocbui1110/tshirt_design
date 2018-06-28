@@ -94,13 +94,41 @@ function LamAoSelected_mauSac(select) {
   LamAoSelected_display();
 }
 
+function popupInfo(id) {
+  if (id == "") {
+    return;
+  } else {
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var shirt = JSON.parse(this.responseText);
+        document.querySelector(".modal-body img").src = shirt.imgPath;
+        document.querySelector(".modal-body .tensanpham").innerHTML  = "Tên sản phẩm: " + shirt.name;
+        document.querySelector(".modal-body .gia").innerHTML  = "Giá: " + shirt.cost;
+        document.querySelector(".modal-body .danhmuc").innerHTML  = "Danh mục: " + shirt.danhMuc;
+        document.querySelector(".modal-body .soluongdamua").innerHTML  = "Số lượng đã mua: " + shirt.soluongmua;
+      }
+    };
+    xmlhttp.open("GET", "/shirt?id=" + id, true);
+    xmlhttp.send();
+  }
+}
+
 function handleNAmountInCart() {
   $(".cost").on("click", function () {
     // set item
     var id = $(this)[0].id;
     var iter = 0;
     var checkbool = false;
-
+    // popup info
+    popupInfo(id);
+    // end popup info
     if (itemInCart.length !== 0)
       itemInCart.data.forEach(item => {
         if (item.id == id) {

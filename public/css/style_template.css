@@ -318,3 +318,7 @@ footer .sm li {
 footer .sm li a img {
   width: 32px;
 }
+
+.modal-header .modal-title{
+  float: left;
+}
