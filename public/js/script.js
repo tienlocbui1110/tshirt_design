@@ -68,6 +68,8 @@ function LamAoSelected_display() {
     canvas.setBackgroundImage(img);
     canvas.renderAll();
   });
+  var json = JSON.stringify(canvas);
+  document.getElementById("dataCanvas").value = json;
 }
 
 function LamAoSelected_mauAo(select) {

@@ -85,7 +85,7 @@
                                 <option>XL</option>
                             </select>
                             <hr>
-                            <form id="submitshirtForm" action="/lamAo/submitshirt" method="post">
+                            <form action="/lamAo/submitshirt" method="post">
                                 <input type="hidden" value="" name="dataCanvas" id="dataCanvas" />
                                 <input class="btn btn-success" type="submit" value="Cho vào giỏ hàng">
                             </form>
@@ -105,12 +105,5 @@
             });
             canvas.add(img);
             canvas.renderAll();
-        });
-        $("#submitshirtForm").submit(function () {
-            var json = JSON.stringify(canvas, function () {
-                alert(json);
-                document.getElementById("dataCanvas").value = json;
-                return true;
-            });
         });
     </script>

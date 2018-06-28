@@ -139,19 +139,17 @@ router.post('/lamAo/upload', (req, res) => {
 
 router.post('/lamAo/submitshirt', (req, res) => {
   var json = req.body.dataCanvas;
-  console.log(json);
-  //var canvas = fabric.Canvas(760,560);
-  // canvas.loadFromJSON(json, function () {
-  //   console.log("Here");
-  //   // canvas.renderAll();
-  //   // out = fs.createWriteStream(__dirname + '/public/imageDesign/helloworld.png');
-  //   // var stream = canvas.createPNGStream();
-  //   // stream.on('data', function (chunk) {
-  //   //   out.write(chunk);
-  //   // });
-  //   res.send("OK!");
-  // });
-  res.send(json);
+  var canvas = fabric.createCanvasForNode(600, 600);
+  canvas.loadFromJSON(json, function () {
+    console.log("Here");
+    canvas.renderAll();
+    outDesign = fs.createWriteStream(__dirname + '/public/imageDesign/helloworld.png');
+    var stream = canvas.createPNGStream();
+    stream.on('data', function (chunk) {
+      outDesign.write(chunk);
+    });
+    res.send("OK!");
+  });
 });
 //
 
@@ -160,9 +158,6 @@ router.get("/khuyenMai", function (req, res) {
   page = isNaN(page) ? 1 : page;
   // get Designed Shirt
   khuyenmaishirtController.getKMShirtbyPage(page, function (shirts, totalRows) {
-    // console.log(article);
-    //console.log(comments);
-    // console.log(totalRows);
     payload = {};
     payload.shirts = shirts;
     if (req.isAuthenticated()) {
@@ -278,6 +273,31 @@ router.get("/danhMuc/aohoddie", function (req, res) {
       payload.authenticated = false;
     }
     res.render("render/danhMuc", {
+      payload,
+      pagination: {
+        limit: 12,
+        page: page,
+        totalRows: totalRows,
+      }
+    });
+  });
+});
+
+router.get("/searching", function (req, res) {
+  var page = parseInt(req.query.page);
+  page = isNaN(page) ? 1 : page;
+  var searchKey = req.query.searchKey;
+  // get Designed Shirt
+  shirtController.getBySearch(searchKey, page, function (shirts, totalRows) {
+    payload = {};
+    payload.shirts = shirts;
+    payload.searchKey = searchKey;
+    if (req.isAuthenticated()) {
+      payload.authenticated = true;
+    } else {
+      payload.authenticated = false;
+    }
+    res.render("render/searching", {
       payload,
       pagination: {
         limit: 12,
