@@ -23,6 +23,36 @@ router.get("/order",function (req, res) {
         res.render("Admin/login");
 });
 
+router.get("/history",function (req, res) {
+    if (req.isAuthenticated()) {
+        if (req.user.isAdmin)
+            res.render("Admin/history");
+        else
+            res.render("Admin/login");
+    } else
+        res.render("Admin/login");
+});
+
+router.get("/coupon",function (req, res) {
+    if (req.isAuthenticated()) {
+        if (req.user.isAdmin)
+            res.render("Admin/coupon");
+        else
+            res.render("Admin/login");
+    } else
+        res.render("Admin/login");
+});
+
+router.get("/findhistory",function (req, res) {
+    if (req.isAuthenticated()) {
+        if (req.user.isAdmin)
+            res.render("Admin/findhistory");
+        else
+            res.render("Admin/login");
+    } else
+        res.render("Admin/login");
+});
+
 router.get("/login", function (req, res) {
     if (req.isAuthenticated()) {
         if (req.user.isAdmin)
