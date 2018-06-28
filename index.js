@@ -17,6 +17,7 @@ var Customer = md.Customer;
 // require routes
 var sync = require("./routes/sync");
 var member = require("./routes/member");
+var admin = require("./routes/admin");
 
 // setup Express
 app.use(bodyParser.urlencoded({
@@ -57,6 +58,7 @@ app.set("view engine", "hbs");
 
 app.use("/sync", sync);
 app.use("/", member);
+app.use("/admin", admin);
 
 // Set Server Port & Start Server
 app.set("port", process.env.PORT || 3000);

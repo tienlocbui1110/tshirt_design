@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body class="signup-login">
+
+    <div style="height:100vh; width: 100%; display: flex; justify-content: center; align-items:center; color: white;">
+        <div class="signIn_Up">
+        <div class="row">
+            <div id="signIn">
+                <div class="form_logIn">
+                    <h1>Sign in</h1>
+                    <form action="/admin/login" method="POST">
+                        <label for="login_field">Email</label>
+                        <input type="text" name="email" id="login_field" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off"
+                            autofocus="autofocus" />
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control form-control input-block" tabindex="2" />
+                        <input type="submit" name="commit_signin" value="Sign in" tabindex="3" class="btn btn-primary btn-block" data-disable-with="Signing in…"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

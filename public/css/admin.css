@@ -3,6 +3,15 @@ body {
   font-family: "Arial", sans-serif;
 }
 
+body.signup-login {
+  padding: 0;
+  margin: 0;
+  display: block;
+  background-color: #2f353a;
+  width: 100%;
+  height: 100vh;
+}
+
 .main-statistical {
   padding: 40px;
 }

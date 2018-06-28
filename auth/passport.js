@@ -5,6 +5,7 @@ var LocalStrategy = require("passport-local").Strategy;
 
 // load up the user model
 var Customer = require("../models").Customer;
+var Admin = require("../models").Admin;
 
 // expose this function to our app using module.exports
 module.exports = function (passport) {
@@ -22,10 +23,10 @@ module.exports = function (passport) {
   // used to deserialize the user
   passport.deserializeUser(function (email, done) {
     Customer.findOne({
-        where: {
-          email: email
-        }
-      })
+      where: {
+        email: email
+      }
+    })
       .then(customer => {
         done(null, customer);
       })
@@ -43,11 +44,11 @@ module.exports = function (passport) {
   passport.use(
     "local-signup",
     new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
-        usernameField: "email",
-        passwordField: "password",
-        passReqToCallback: true // allows us to pass back the entire request to the callback
-      },
+      // by default, local strategy uses username and password, we will override with email
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
       function (req, email, password, done) {
 
         // asynchronous
@@ -56,10 +57,10 @@ module.exports = function (passport) {
           // find a user whose email is the same as the forms email
           // we are checking to see if the user trying to login already exists
           Customer.findOne({
-              where: {
-                email: email
-              }
-            })
+            where: {
+              email: email
+            }
+          })
             .then(user => {
               if (user) {
                 console.log("That user is already taken.");
@@ -74,7 +75,8 @@ module.exports = function (passport) {
                 console.log("Create user..");
                 Customer.create({
                   email: email,
-                  password: Customer.generateHash(password)
+                  password: Customer.generateHash(password),
+                  isAdmin: false
                 }).then(customer => {
                   return done(null, customer);
                 });
@@ -91,20 +93,20 @@ module.exports = function (passport) {
   passport.use(
     "local-login",
     new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
-        usernameField: "email",
-        passwordField: "password",
-        passReqToCallback: true // allows us to pass back the entire request to the callback
-      },
+      // by default, local strategy uses username and password, we will override with email
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
       function (req, email, password, done) {
         // callback with email and password from our form
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
         Customer.findOne({
-            where: {
-              email: email
-            }
-          })
+          where: {
+            email: email
+          }
+        })
           .then(customer => {
             if (!customer) {
               console.log("Dont have match customer");
