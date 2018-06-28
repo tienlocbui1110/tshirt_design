@@ -231,3 +231,29 @@ footer .sm li a img {
 body {
   overflow: auto;
 }
+
+
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 0px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border-left: rgb(63, 144, 219) 1px solid;
+  border-top: rgb(63, 144, 219) 1px solid;
+  border-bottom: rgb(63, 144, 219) 1px solid;
+}

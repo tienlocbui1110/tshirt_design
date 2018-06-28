@@ -2,7 +2,9 @@
 module.exports = (sequelize, DataTypes) => {
   var PurchaseHistory = sequelize.define(
     "PurchaseHistory",
-    {},
+    {
+      status: DataTypes.STRING
+    },
     {
       freezeTableName: true
     }
@@ -14,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       through: models.DetailsPurchaseHistory
     });
     PurchaseHistory.belongsTo(models.Customer);
+    PurchaseHistory.belongsTo(models.Payment);
   };
   return PurchaseHistory;
 };
