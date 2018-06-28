@@ -57,20 +57,17 @@ function LamAoSelected_display() {
     }
   }
   console.log(path);
-  var canvas = new fabric.Canvas("display");
-  canvas.remove(imgSave);
   fabric.Image.fromURL(path, function (img) {
-    img.scaleToHeight(500);
+    img.scaleToHeight(canvas.height);
     img.set({
-      left: 380,
-      top: 280,
+      left: canvas.width / 2,
+      top: canvas.height / 2,
       originX: 'center',
       originY: 'center'
     });
-    imgSave = img;
     canvas.setBackgroundImage(img);
+    canvas.renderAll();
   });
-  canvas.renderAll();
 }
 
 function LamAoSelected_mauAo(select) {
