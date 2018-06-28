@@ -128,185 +128,39 @@
                                     </thead>
                                     <tbody>
                                         {{#each payload.history}}
+                                         {{#each this.Shirts}}
                                         <tr>
                                             <td class="text-center">
                                                 <div class="avatar">
-                                                    <img src="{{this.Customer.avatar}}" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                                    <img src="{{../this.Customer.avatar}}" class="img-avatar" alt="admin@bootstrapmaster.com">
                                                     <span class="avatar-status badge-success"></span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div>{{this.Customer.firstName}}</div>
+                                                <div>{{../this.Customer.firstName}}</div>
                                             </td>
                                             <td>
-                                                <div>Skull Helmet Glass</div>
+                                                <div>{{this.name}}</div>
                                             </td>
                                             <td>
-                                                <div>A25JWJ335J</div>
+                                                <div>{{../this.id}}</div>
                                             </td>
                                             <td>
-                                                <div>100.000đ</div>
+                                                <div>{{this.cost}}d</div>
                                             </td>
                                             <td class="text-center">
-                                                <i class="fa fa-cc-mastercard" style="font-size:24px"></i>
+                                                {{../this.Payment.dataValues.name}}
                                             </td>
                                             <td>
-                                                <strong>12:36 PM, 27/5/2018</strong>
+                                                <strong>{{../this.createdAt}}</strong>
                                             </td>
                                             <td>
-                                                <div>Hoàn tất</div>
+                                                <div>{{../this.status}}</div>
                                             </td>
                                         </tr>
-                                        {{/each}}
-
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="avatar">
-                                                    <img src="/img/avatar2.png" class="img-avatar" alt="admin@bootstrapmaster.com">
-                                                    <span class="avatar-status badge-success"></span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>Nguyễn Văn Nam</div>
-                                            </td>
-                                            <td>
-                                                <div>Skull Helmet Glass</div>
-                                            </td>
-                                            <td>
-                                                <div>J2QXWJ335J</div>
-                                            </td>
-                                            <td>
-                                                <div>100.000đ</div>
-                                            </td>
-                                            <td class="text-center">
-                                                <i class="fa fa-cc-mastercard" style="font-size:24px"></i>
-                                            </td>
-                                            <td>
-                                                <strong>12:45 PM, 27/5/2018</strong>
-                                            </td>
-                                            <td>
-                                                <div>Hoàn tất</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="avatar">
-                                                    <img src="/img/avatar3.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                                                    <span class="avatar-status badge-success"></span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>John M. Robin</div>
-                                            </td>
-                                            <td>
-                                                <div>Skull Helmet Glass</div>
-                                            </td>
-                                            <td>
-                                                <div>JQO245KQLL</div>
-                                            </td>
-                                            <td>
-                                                <div>100.000đ</div>
-                                            </td>
-                                            <td class="text-center">
-                                                <i class="fa fa-cc-mastercard" style="font-size:24px"></i>
-                                            </td>
-                                            <td>
-                                                <strong>12:36 PM, 27/5/2018</strong>
-                                            </td>
-                                            <td>
-                                                <div>Đang xử lí</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="avatar">
-                                                    <img src="/img/avatar1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                                                    <span class="avatar-status badge-success"></span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>Yiorgos Avraamu</div>
-                                            </td>
-                                            <td>
-                                                <div>Skull Helmet Glass</div>
-                                            </td>
-                                            <td>
-                                                <div>SW85W2X6GK</div>
-                                            </td>
-                                            <td>
-                                                <div>100.000đ</div>
-                                            </td>
-                                            <td class="text-center">
-                                                <i class="fa fa-cc-mastercard" style="font-size:24px"></i>
-                                            </td>
-                                            <td>
-                                                <strong>11:40 PM, 25/5/2018</strong>
-                                            </td>
-                                            <td>
-                                                <div>Đã hủy</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="avatar">
-                                                    <img src="/img/avatar2.png" class="img-avatar" alt="admin@bootstrapmaster.com">
-                                                    <span class="avatar-status badge-success"></span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>Nguyễn Văn Nam</div>
-                                            </td>
-                                            <td>
-                                                <div>Skull Helmet Glass</div>
-                                            </td>
-                                            <td>
-                                                <div>SDAEW58528</div>
-                                            </td>
-                                            <td>
-                                                <div>100.000đ</div>
-                                            </td>
-                                            <td class="text-center">
-                                                <i class="fa fa-cc-mastercard" style="font-size:24px"></i>
-                                            </td>
-                                            <td>
-                                                <strong>16:23 PM, 24/5/2018</strong>
-                                            </td>
-                                            <td>
-                                                <div>Hoàn tất</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="avatar">
-                                                    <img src="/img/avatar3.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                                                    <span class="avatar-status badge-success"></span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>John M. Robin</div>
-                                            </td>
-                                            <td>
-                                                <div>Skull Helmet Glass</div>
-                                            </td>
-                                            <td>
-                                                <div>RJ28SJKX8M</div>
-                                            </td>
-                                            <td>
-                                                <div>100.000đ</div>
-                                            </td>
-                                            <td class="text-center">
-                                                <i class="fa fa-cc-mastercard" style="font-size:24px"></i>
-                                            </td>
-                                            <td>
-                                                <strong>14:36 PM, 23/5/2018</strong>
-                                            </td>
-                                            <td>
-                                                <div>Hoàn tất</div>
-                                            </td>
-                                        </tr>
+                                        {{/each}} {{/each}}
                                     </tbody>
                                 </table>
-                                {{{paginate pagination leftText="&lt" rightText="&gt"}}}
                             </div>
                         </div>
                     </div>

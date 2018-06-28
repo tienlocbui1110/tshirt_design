@@ -16,7 +16,16 @@ router.get("/", function (req, res) {
 router.get("/order", function (req, res) {
     if (req.isAuthenticated()) {
         if (req.user.isAdmin)
-            res.render("Admin/order");
+        {
+            AdminController.getPurchaseHistory(5, 5, function (result, sum) {
+                res.render("Admin/order", {
+                    payload: {
+                        history: result
+                    }
+                });
+            });
+        }
+            
         else
             res.render("Admin/login");
     } else
@@ -25,20 +34,12 @@ router.get("/order", function (req, res) {
 
 router.get("/history", function (req, res) {
 
-    let limit = 5;
-    let page = (req.query.page == undefined ? 1: req.query.page);
-
     if (req.isAuthenticated()) {
         if (req.user.isAdmin) {
-            AdminController.getPurchaseHistory(limit,page,function(result, sum){
+            AdminController.getPurchaseHistory(5, 5, function (result, sum) {
                 res.render("Admin/history", {
                     payload: {
                         history: result
-                    }, 
-                    pagination: {
-                        limit,
-                        page,
-                        totalRows: sum
                     }
                 });
             });
@@ -51,8 +52,16 @@ router.get("/history", function (req, res) {
 
 router.get("/tshirt", function (req, res) {
     if (req.isAuthenticated()) {
-        if (req.user.isAdmin)
-            res.render("Admin/tshirt");
+        if (req.user.isAdmin) {
+            AdminController.getShirts(function (shirts, num) {
+
+                res.render("Admin/tshirt", {
+                    payload: {
+                        shirts
+                    }
+                });
+            })
+        }
         else
             res.render("Admin/login");
     } else

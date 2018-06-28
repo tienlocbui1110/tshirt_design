@@ -99,23 +99,25 @@
                     <div class="card main-statistical">
                         <div class="card-body">
                             <div class="list-order">
-                                <h4>Đơn hàng A2X4485XXA</h4>
+                                {{#each payload.history}}
+                                {{#each this.Shirts}}
+                                <h4>Đơn hàng {{../this.id}}</h4>
                                 <div class="order-item">
                                     <div class="left-img">
-                                        <img src="/img/ao1.jpg">
+                                        <img src="{{this.imgPath}}">
                                     </div>
                                     <div class="detail-info">
                                         <p>Giá tiền:
-                                            <span>100.000đ</span>
+                                            <span>{{this.cost}}đ</span>
                                         </p>
                                         <p>Kích cỡ:
-                                            <span>M</span>
+                                            <span>ALL</span>
                                         </p>
                                         <p>Số lượng:
-                                            <span>2</span>
+                                            <span>{{this.soluongmua}}</span>
                                         </p>
                                         <p>Trạng thái:
-                                            <span>Đã tiếp nhận</span>
+                                            <span>{{../this.status}}</span>
                                         </p>
                                         <div class="button-container">
                                             <button class="btn btn-primary">Hoàn thành</button>
@@ -123,6 +125,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{/each}}
+                                {{/each}}
                                 <h4>Đơn hàng A482215XXA</h4>
                                 <div class="order-item">
                                     <div class="left-img">
