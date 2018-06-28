@@ -379,7 +379,7 @@ router.get("/cart", function (req, res) {
 });
 
 router.get("/info", Utils.isLoggedIn, function (req, res) {
-  res.render("Member/personalInformation", {
+  res.render("render/personalInformation", {
     payload: {
       authenticated: true
     }
