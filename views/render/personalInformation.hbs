@@ -59,29 +59,29 @@
             </div>
             <div class="edit-information">
                 <p>Thông tin cá nhân</p>
-                <form>
+                <form action="/info/capnhapttcn" method="POST">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Họ</label>
-                            <input type="text" class="form-control" placeholder="Họ" value="Nguyễn" required>
+                            <input name="lastname" type="text" class="form-control" placeholder="Họ" value="Nguyễn" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Tên</label>
-                            <input type="text" class="form-control" placeholder="Tên" value="Văn A" required>
+                            <input name="firstname" type="text" class="form-control" placeholder="Tên" value="Văn A" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Địa chỉ</label>
-                        <input type="text" class="form-control" placeholder="1234 Main St" value="123 Điện Biên Phủ, TpHCM" required>
+                        <input name="address" type="text" class="form-control" placeholder="1234 Main St" value="123 Điện Biên Phủ, TpHCM" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-6 col-md-12">
                             <label>Số điện thoại</label>
-                            <input type="number" class="form-control" placeholder="0123" value="01234567890" required>
+                            <input name="phone" type="number" class="form-control" placeholder="0123" value="01234567890" required>
                         </div>
                         <div class="form-group col-lg-2 col-md-12">
                             <label>Ngày</label>
-                            <select class="form-control" required>
+                            <select name="ngay" class="form-control" required>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -117,7 +117,7 @@
                         </div>
                         <div class="form-group col-lg-2 col-md-12">
                             <label>Tháng</label>
-                            <select class="form-control" required>
+                            <select name="thang" class="form-control" required>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="form-group col-lg-2 col-md-12">
                             <label>Năm sinh</label>
-                            <select class="form-control" required>
+                            <select name="nam" class="form-control" required>
                                 <option value="2013">2013</option>
                                 <option value="2012">2012</option>
                                 <option value="2011">2011</option>
@@ -248,31 +248,29 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                    <button type="reset" class="btn btn-danger" value="Reset">Mặc định</button>
                 </form>
 
                 <p>Mật khẩu</p>
-                <form>
+                <form action="info/capnhapmk" method="POST">
                     <div class="form-row">
                         <div class="form-group col-lg-12 col-xl-4">
                             <label>Nhập mật khẩu hiện tại</label>
-                            <input type="password" class="form-control" required>
+                            <input name="mkht" type="password" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-12 col-xl-4">
                             <label>Nhập mật khẩu mới</label>
-                            <input type="password" class="form-control" required>
+                            <input name="mkmoi" type="password" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-12 col-xl-4">
-                            <label>Nhập mật khẩu mới</label>
-                            <input type="password" class="form-control" required>
+                            <label>Nhập lại mật khẩu mới</label>
+                            <input name="mkmoi2" type="password" class="form-control" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                    <button type="reset" class="btn btn-danger" value="Reset">Mặc định</button>
                 </form>
             </div>
 

@@ -28,4 +28,16 @@ controller.getKMShirtbyPage = function (page, callback) {
         });
 }
 
+controller.getShirt = function (id, callback) {
+    models.khuyenmaishirt.findOne({
+        where: {
+            id: id
+        }
+    }).then(function (shirt) {
+        callback(shirt);
+    }).catch(async function (err) {
+        callback(null);
+    });
+}
+
 module.exports = controller;
