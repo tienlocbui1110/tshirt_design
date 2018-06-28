@@ -85,11 +85,32 @@
                                 <option>XL</option>
                             </select>
                             <hr>
-                            <button class="btn btn-success">Cho vào giỏ hàng</button>
+                            <form id="submitshirtForm" action="/lamAo/submitshirt" method="post">
+                                <input type="hidden" value="" name="dataCanvas" id="dataCanvas" />
+                                <input class="btn btn-success" type="submit" value="Cho vào giỏ hàng">
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <img src="{{file}}" class="responsive-img">
+    <script>
+        var canvas = new fabric.Canvas("display");
+        fabric.Image.fromURL('{{file}}', function (img) {
+            img.scaleToHeight(300);
+            img.set({
+                left: 0,
+                top: 0
+            });
+            canvas.add(img);
+            canvas.renderAll();
+        });
+        $("#submitshirtForm").submit(function () {
+            var json = JSON.stringify(canvas, function () {
+                alert(json);
+                document.getElementById("dataCanvas").value = json;
+                return true;
+            });
+        });
+    </script>

@@ -11,29 +11,31 @@ var utils = require("../utils");
 var multer = require('multer');
 const path = require('path');
 var mauAoController = require("./../controllers/mauAoController");
+var fs = require('fs');
+var fabric = require('fabric').fabric;
 
 // GET REQUEST
 
 router.get("/", function (req, res) {
   // get Designed Shirt
   db.khuyenmaishirt.findAll({
-    where: {
-      status: true,
-      isPublic: true
-    },
-    limit: 8
-  })
+      where: {
+        status: true,
+        isPublic: true
+      },
+      limit: 8
+    })
     .then(kmshirts => {
       db.Shirt.findAll({
-        where: {
-          status: true,
-          isPublic: true
-        },
-        order: [
-          ['soluongmua', 'DESC']
-        ],
-        limit: 8
-      })
+          where: {
+            status: true,
+            isPublic: true
+          },
+          order: [
+            ['soluongmua', 'DESC']
+          ],
+          limit: 8
+        })
         .then(hotshirts => {
           payload = {};
           payload.kmshirts = kmshirts;
@@ -134,6 +136,23 @@ router.post('/lamAo/upload', (req, res) => {
     });
   });
 });
+
+router.post('/lamAo/submitshirt', (req, res) => {
+  var json = req.body.dataCanvas;
+  console.log(json);
+  //var canvas = fabric.Canvas(760,560);
+  // canvas.loadFromJSON(json, function () {
+  //   console.log("Here");
+  //   // canvas.renderAll();
+  //   // out = fs.createWriteStream(__dirname + '/public/imageDesign/helloworld.png');
+  //   // var stream = canvas.createPNGStream();
+  //   // stream.on('data', function (chunk) {
+  //   //   out.write(chunk);
+  //   // });
+  //   res.send("OK!");
+  // });
+  res.send(json);
+});
 //
 
 router.get("/khuyenMai", function (req, res) {
@@ -165,15 +184,15 @@ router.get("/khuyenMai", function (req, res) {
 router.get("/aoHot", function (req, res) {
   // get Designed Shirt
   db.Shirt.findAll({
-    where: {
-      status: true,
-      isPublic: true
-    },
-    order: [
-      ['soluongmua', 'DESC']
-    ],
-    limit: 12
-  })
+      where: {
+        status: true,
+        isPublic: true
+      },
+      order: [
+        ['soluongmua', 'DESC']
+      ],
+      limit: 12
+    })
     .then(shirts => {
       payload = {};
       payload.shirts = shirts;
@@ -240,7 +259,7 @@ router.get("/danhMuc/aocotim", function (req, res) {
         page: page,
         totalRows: totalRows
       },
-      isAoCoTim : true
+      isAoCoTim: true
     });
   });
 });
@@ -386,7 +405,8 @@ router.get("/login", function (req, res) {
 
 // POST REQUEST
 router.post(
-  "/login", function (req, res, next) {
+  "/login",
+  function (req, res, next) {
     utils.validateEmail(req, res, "failedSignIn", "failedSignInMessage", function () {
 
       // check the reCaptcha v2
@@ -405,7 +425,9 @@ router.post(
           return res.redirect('/login?' + query);
         } else {
           passport.authenticate("local-login", function (err, user, info) {
-            if (err) { return next(err); }
+            if (err) {
+              return next(err);
+            }
             if (!user) {
               const query = querystring.stringify({
                 failedSignIn: true,
@@ -433,7 +455,8 @@ router.post(
 
 
 router.post(
-  "/signup", function (req, res, next) {
+  "/signup",
+  function (req, res, next) {
     utils.validateEmail(req, res, "failedSignUp", "failedSignUpMessage", function () {
       // check the reCaptcha v2
       var secretKey = "6LeH-mAUAAAAAGLRChzCagdlFhn3iVi2CTWhv9Mn";
@@ -452,7 +475,9 @@ router.post(
         } else {
           passport.authenticate("local-signup", function (err, user, info) {
 
-            if (err) { return next(err); }
+            if (err) {
+              return next(err);
+            }
             if (!user) {
               const query = querystring.stringify({
                 failedSignUp: true,
