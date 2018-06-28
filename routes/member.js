@@ -303,6 +303,9 @@ router.get("/searching", function (req, res) {
         limit: 12,
         page: page,
         totalRows: totalRows,
+        queryParams: {
+          searchKey
+        }
       },
       isHoddie: true
     });
