@@ -8,24 +8,28 @@ module.exports = {
       email: "example@gmail.com",
       password: Customer.generateHash("a"),
       firstName: "Nguyễ n Văn Đào",
+      avatar: "/img/avatar1.jpg",
       createdAt: Sequelize.literal("NOW()"),
       updatedAt: Sequelize.literal("NOW()")
     }, {
       email: "example1@gmail.com",
       password: Customer.generateHash("a"),
       firstName: "Nguyễ n Văn Tho",
+      avatar: "/img/avatar2.png",
       createdAt: Sequelize.literal("NOW()"),
       updatedAt: Sequelize.literal("NOW()")
     }, {
       email: "example2@gmail.com",
       password: Customer.generateHash("a"),
       firstName: "Nguyễ n Văn Thanh",
+      avatar: "/img/avatar3.jpg",
       createdAt: Sequelize.literal("NOW()"),
       updatedAt: Sequelize.literal("NOW()")
     }, {
       email: "example3@gmail.com",
       password: Customer.generateHash("a"),
       firstName: "Nguyễ n Văn Nam",
+      avatar: "/img/icon-login.png",
       createdAt: Sequelize.literal("NOW()"),
       updatedAt: Sequelize.literal("NOW()")
     }, {
