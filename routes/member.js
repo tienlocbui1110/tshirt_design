@@ -312,6 +312,15 @@ router.get("/searching", function (req, res) {
   });
 });
 
+router.get("/shirt", function (req, res) {
+  var id = parseInt(req.query.id);
+  // get Designed Shirt
+  shirtController.getShirt(id, function (shirt) {
+    var json = JSON.stringify(shirt);
+    res.send(json);
+  });
+});
+
 router.get("/cart", function (req, res) {
   if (req.cookies.cart == "") {
     if (req.isAuthenticated()) {
