@@ -94,7 +94,8 @@ function LamAoSelected_mauSac(select) {
   LamAoSelected_display();
 }
 
-function popupInfo(id) {
+function popupInfo(id, name) {
+  console.log(name);
   if (id == "") {
     return;
   } else {
@@ -108,14 +109,22 @@ function popupInfo(id) {
     xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         var shirt = JSON.parse(this.responseText);
-        document.querySelector(".modal-body img").src = shirt.imgPath;
-        document.querySelector(".modal-body .tensanpham").innerHTML  = "Tên sản phẩm: " + shirt.name;
-        document.querySelector(".modal-body .gia").innerHTML  = "Giá: " + shirt.cost;
-        document.querySelector(".modal-body .danhmuc").innerHTML  = "Danh mục: " + shirt.danhMuc;
-        document.querySelector(".modal-body .soluongdamua").innerHTML  = "Số lượng đã mua: " + shirt.soluongmua;
+        if (name.trim() == "shirts".trim()) {
+          document.querySelector(".modal-body img").src = shirt.imgPath;
+          document.querySelector(".modal-body .tensanpham").innerHTML = "Tên sản phẩm: " + shirt.name;
+          document.querySelector(".modal-body .gia").innerHTML = "Giá: " + shirt.cost;
+          document.querySelector(".modal-body .danhmuc").innerHTML = "Danh mục: " + shirt.danhMuc;
+          document.querySelector(".modal-body .soluongdamua").innerHTML = "Số lượng đã mua: " + shirt.soluongmua;
+        } else {
+          document.querySelector(".modal-body img").src = shirt.imgPath;
+          document.querySelector(".modal-body .tensanpham").innerHTML = "Tên sản phẩm: " + shirt.name;
+          document.querySelector(".modal-body .gia").innerHTML = "Giá: " + shirt.costKhuyenMai;
+          document.querySelector(".modal-body .danhmuc").innerHTML = "Danh mục: " + shirt.danhMuc;
+          document.querySelector(".modal-body .soluongdamua").innerHTML = "Số lượng đã mua: " + shirt.soluongmua;
+        }
       }
     };
-    xmlhttp.open("GET", "/shirt?id=" + id, true);
+    xmlhttp.open("GET", "/shirt?id=" + id + "&name=" + name, true);
     xmlhttp.send();
   }
 }
@@ -127,7 +136,7 @@ function handleNAmountInCart() {
     var iter = 0;
     var checkbool = false;
     // popup info
-    popupInfo(id);
+    popupInfo(id, $(this)[0].name);
     // end popup info
     if (itemInCart.length !== 0)
       itemInCart.data.forEach(item => {

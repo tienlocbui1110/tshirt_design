@@ -303,9 +303,8 @@ router.get("/searching", function (req, res) {
         limit: 12,
         page: page,
         totalRows: totalRows,
-        queryParams: 
-          req.query
-        
+        queryParams: req.query
+
       },
       isHoddie: true
     });
@@ -314,11 +313,20 @@ router.get("/searching", function (req, res) {
 
 router.get("/shirt", function (req, res) {
   var id = parseInt(req.query.id);
+  var name = req.query.name;
+  console.log(name);
   // get Designed Shirt
-  shirtController.getShirt(id, function (shirt) {
-    var json = JSON.stringify(shirt);
-    res.send(json);
-  });
+  if (name.trim() == "shirts".trim()) {
+    shirtController.getShirt(id, function (shirt) {
+      var json = JSON.stringify(shirt);
+      res.send(json);
+    });
+  } else {
+    khuyenmaishirtController.getShirt(id, function (shirt) {
+      var json = JSON.stringify(shirt);
+      res.send(json);
+    });
+  }
 });
 
 router.get("/cart", function (req, res) {
@@ -391,6 +399,14 @@ router.get("/cart", function (req, res) {
 });
 
 router.get("/info", Utils.isLoggedIn, function (req, res) {
+  res.render("render/personalInformation", {
+    payload: {
+      authenticated: true
+    }
+  });
+});
+
+router.get("/info/capnhapttcn", Utils.isLoggedIn, function (req, res) {
   res.render("render/personalInformation", {
     payload: {
       authenticated: true
