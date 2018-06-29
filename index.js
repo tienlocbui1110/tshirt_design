@@ -8,6 +8,7 @@ var expressHbs = require("express-handlebars");
 var paginateHelper = require('express-handlebars-paginate');
 var flash = require("connect-flash");
 var Utils = require("./utils");
+var methodOverride = require('method-override');
 
 // require model
 
@@ -38,7 +39,7 @@ app.use(
 ); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
+app.use(methodOverride('_method'));
 require("./auth/passport")(passport);
 
 var hbs = expressHbs.create({
@@ -54,6 +55,7 @@ var hbs = expressHbs.create({
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 
+app.use(methodOverride('_method'));
 // setup Routes
 
 app.use("/sync", sync);

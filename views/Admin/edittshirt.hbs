@@ -102,14 +102,14 @@
             <div class="container-fluid">
                 <div class="animated fadeIn">
                     <div class="container edit-t">
-                        <form action="tshirt.html">
+                        <form  method="POST" action="/admin/shirt">
                             <div class="form-group form-inline">
                                 <label for="name">Tên áo</label>
-                                <input type="text" id="name" class="form-control mx-sm-3" value="Example">
+                                <input type="text" name="name" id="name" class="form-control mx-sm-3" value="Example">
                             </div>
                             <div class="form-group form-inline">
                                 <label for="price">Giá tiền</label>
-                                <input type="text" id="price" class="form-control mx-sm-3" value="120.000đ">
+                                <input type="text" name="cost" id="price" class="form-control mx-sm-3" value="120.000đ">
                             </div>
                             <div class="form-group form-inline">
                                 <label for="size">Kích cỡ</label>
@@ -132,7 +132,7 @@
                             </div>
                             <div class="form-group form-inline">
                                 <label for="shirt">Tải áo</label>
-                                <input type="file" id="shirt" class="form-control mx-sm-3" name="img" accept="image/x-png,image/gif,image/jpeg">
+                                <input type="file" id="shirt" name="myImage">
                             </div>
                             <div class="button-container">
                                 <button type="submit" class="btn btn-primary">Lưu thay đổi</button>

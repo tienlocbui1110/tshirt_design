@@ -108,8 +108,8 @@
                                     </div>
                                     <div class="detail-info">
                                         <div class="button-container" style="display: flex; flex-direction:row;">
-                                            <form class="form-inline" style="display: flex; flex:1;"><button class="btn btn-primary" onclick="window.location.href='edittshirt.html';">Sửa</button></form>
-                                            <form class="form-inline" action="GET" style="display: flex; flex:1;"><button class="btn btn-danger">Xóa</button></form>
+                                            <form class="form-inline" style="display: flex; flex:1;"><button class="btn btn-primary" onclick="window.location.href='/admin/editshirt';">Sửa</button></form>
+                                            <form class="form-inline" method="POST" action="/admin/shirt/{{this.id}}?_method=DELETE" style="display: flex; flex:1;"><button class="btn btn-danger">Xóa</button></form>
                                             
                                         </div>
                                         <p>Giá tiền:

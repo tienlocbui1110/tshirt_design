@@ -30,4 +30,26 @@ controller.getShirts = function (callback) {
     })
 }
 
+controller.insertShirt = function (shirt,callback) {
+    models.Shirt.create({
+        name: shirt.name,
+        cost: shirt.cost,
+        imgPath: shirt.imgPath,
+        isPublic: true,
+        soluongmua: 0
+    }).then(newShirt=>{
+        callback(newShirt);
+    })
+}
+
+controller.deleteShirt = function(shirtId, callback){
+    models.Shirt.destroy({
+        where: {
+            id: shirtId
+        }
+    }).then(object=>{
+        callback(object);
+    })
+};
+
 module.exports = controller;
